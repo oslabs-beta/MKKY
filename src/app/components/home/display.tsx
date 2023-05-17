@@ -24,15 +24,31 @@ const Display = async () =>{
   client.connect()
 
   const allTables = await client.query("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';")
-  const rows = await client.query("SELECT * FROM users");
-  const rowsArray = Array.from(rows)
+  const allTableNames = Object.values(allTables.rows)
+  console.log('TABLE NAMES', allTableNames)
+  const tableData = await client.query(`SELECT * FROM ${allTableNames[0].table_name}`);
   return (
     <div>
-      {console.log('THE TABLES', allTables)}
-      {console.log(rowsArray)}
-      {console.log(rows.rows)}
-      {rows.rows.map((row: any) => (
-        <p key={row.id}>{row.name}</p>
+      {console.log(tableData.rows)}
+      {console.log(allTables.rows)}
+
+      <style>{`td { border : 4px solid red}`}</style>
+        {allTables.rows.map((table:any) => (
+          <div>
+            <h1>{table.table_name}</h1>
+            <table>
+              
+              {tableData.rows.map((row: any) => (
+                <tr key={row.id}>
+                  {Object.keys(row).map((cell:any) => (
+                    <td>{row[cell]}</td>
+                  ))}
+                </tr>
+                )) 
+              }
+
+            </table>
+          </div>
       ))}
     </div>
   );
