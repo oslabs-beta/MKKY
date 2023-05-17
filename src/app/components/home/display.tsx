@@ -26,28 +26,39 @@ const Display = async () =>{
   const allTables = await client.query("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';")
   const allTableNames = Object.values(allTables.rows)
   console.log('TABLE NAMES', allTableNames)
-  const tableData = await client.query(`SELECT * FROM ${allTableNames[0].table_name}`);
+
+  
+  let allTablesData = []
+  let tableData;
+  allTableNames.pop()
+  allTableNames.forEach( async (table) => {
+    tableData = await client.query(`SELECT * FROM ${table.table_name}`)
+    allTablesData.push(tableData)
+  })
+  tableData = await client.query(`SELECT * FROM ${allTableNames[0].table_name}`);
   return (
     <div>
-      {console.log(tableData.rows)}
+      {console.log("All DATA", allTablesData)}
       {console.log(allTables.rows)}
 
-      <style>{`td { border : 4px solid red}`}</style>
+      <style>{`td { border : 4px solid blue}`}</style>
         {allTables.rows.map((table:any) => (
           <div>
             <h1>{table.table_name}</h1>
-            <table>
+              {allTablesData.map((table) => (
               
-              {tableData.rows.map((row: any) => (
-                <tr key={row.id}>
-                  {Object.keys(row).map((cell:any) => (
-                    <td>{row[cell]}</td>
-                  ))}
-                </tr>
-                )) 
-              }
-
-            </table>
+                <table> 
+                {table.rows.map((row: any) => (
+                  <tr key={row.id}>
+                    {Object.keys(row).map((cell:any) => (
+                      <td>{row[cell]}</td>
+                    ))}
+                  </tr>
+                  )) 
+                  }
+                </table>
+              ))  
+              }         
           </div>
       ))}
     </div>
