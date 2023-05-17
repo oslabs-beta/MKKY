@@ -1,5 +1,5 @@
 'use client'
-import {signIn, signOut, useSession, getProviders} from 'next-auth/react';
+import {signIn, signOut, useSession} from 'next-auth/react';
 
 
 export default function Login(){
@@ -15,8 +15,7 @@ export default function Login(){
     }
         return(
             <div>
-                <button onClick={() => signIn(
-                ) } type="button" className='btn btn-primary'>
+                <button onClick={() => signIn(undefined, { callbackUrl: 'http://localhost:3000/components/home'}) } type="button" className='btn btn-primary'>
                     SignIn
                 </button>
             </div>

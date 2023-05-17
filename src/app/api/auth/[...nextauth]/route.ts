@@ -30,7 +30,8 @@ const handler = NextAuth({
             clientId: process.env.GITHUB_ID!,
             clientSecret: process.env.GITHUB_SECRET!,
           })
-    ]
+    ],
+    //this will overwrite my callbackUrl in login page.tsx
     // callbacks: {
     //     async redirect({ url, baseUrl}){
     //         return baseUrl;
