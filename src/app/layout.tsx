@@ -1,6 +1,10 @@
 import './globals.css'
 import React from 'react';
 import Nav from './components/Nav'
+import { Inter } from 'next/font/google'
+import Provider from './Providers';
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'OSP Project',
@@ -11,13 +15,17 @@ export const metadata = {
 const Rootlayout = ({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) => {
-  return(
-    <div>
-      <Nav />
-      {children}
-    </div>
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <Provider>
+          <Nav />
+        {children}
+        </Provider>
+        </body>
+    </html>
   )
 }
 export default Rootlayout;
