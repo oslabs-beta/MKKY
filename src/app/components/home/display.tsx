@@ -32,7 +32,6 @@ const Display = async () =>{
 
   allTables.rows.pop()
   
-  let counter = 0
   return (
     <div>
       {console.log("All DATA", allTablesData)}
@@ -40,25 +39,23 @@ const Display = async () =>{
       {console.log(allTables.rows)}
 
       <style>{`td { border : 4px solid blue}`}</style>
-        {allTables.rows.map((table:any) => (
+        {allTables.rows.map((table:any, index: number) => (
           <div>
             <h1>{table.table_name}</h1>
               
-              {allTablesData.map((table) => (
-            
-                <table> 
-                  {console.log("COUNT",counter)}
-                {table.rows.map((row: any) => (
-                  <tr key={row.id}>
-                    {Object.keys(row).map((cell:any) => (
-                      <td>{row[cell]}</td>
-                    ))}
-                  </tr>
-                  )) 
-                  }
-                </table>
-              ))  
-              }         
+              <table> 
+                
+              {allTablesData[index].rows.map((row: any) => (
+                <tr key={row.id}>
+                  {Object.keys(row).map((cell:any) => (
+                    <td>{row[cell]}</td>
+                  ))}
+                </tr>
+                )) 
+                }
+              </table>
+              
+                    
           </div>
       ))}
     </div>
