@@ -3,17 +3,6 @@ import Chart from "chart.js";
 import {Pool} from 'pg';
 import {Client} from '@elephantsql/client';
 
-// let pg = require('pg')
-// const URI = 'postgres://mmethhdd:OuENml3Y4wNyMcCHb69l16Cn3l2osxzh@drona.db.elephantsql.com/mmethhdd'
-
-// const pool = new Pool({
-//   connectionString: URI,
-// })
-// let client = new pg.Client(URI)
-// client.connect()
-
-
-// const rows = client.query("SELECT * FROM my_table");
 
 
 const Display = async () =>{
@@ -24,30 +13,41 @@ const Display = async () =>{
   client.connect()
 
   const allTables = await client.query("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';")
+  //allTables.rows.pop()
   const allTableNames = Object.values(allTables.rows)
+
+
   console.log('TABLE NAMES', allTableNames)
 
-  
   let allTablesData = []
   let tableData;
+
+  //Removing SQL default table
   allTableNames.pop()
   allTableNames.forEach( async (table) => {
     tableData = await client.query(`SELECT * FROM ${table.table_name}`)
     allTablesData.push(tableData)
   })
   tableData = await client.query(`SELECT * FROM ${allTableNames[0].table_name}`);
+
+  allTables.rows.pop()
+  
+  let counter = 0
   return (
     <div>
       {console.log("All DATA", allTablesData)}
+      {console.log("FIELDS", allTablesData[0].fields)}
       {console.log(allTables.rows)}
 
       <style>{`td { border : 4px solid blue}`}</style>
         {allTables.rows.map((table:any) => (
           <div>
             <h1>{table.table_name}</h1>
-              {allTablesData.map((table) => (
               
+              {allTablesData.map((table) => (
+            
                 <table> 
+                  {console.log("COUNT",counter)}
                 {table.rows.map((row: any) => (
                   <tr key={row.id}>
                     {Object.keys(row).map((cell:any) => (
@@ -67,6 +67,7 @@ const Display = async () =>{
   
   export default Display;
 
+  
     // const [data, setData] = useState<{ columns: any[], rows: any[] }[]>([]);
   
     // useEffect(() => {
@@ -101,3 +102,10 @@ const Display = async () =>{
       //     </tbody>
       //   </table>
       // </div>
+
+
+
+
+      //LOOP 1: TABLE NAME 
+      //LOOP 2: FIELDS
+      //LOOP 2: TABLE DATA
