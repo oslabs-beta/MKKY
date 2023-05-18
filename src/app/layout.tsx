@@ -1,21 +1,23 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import React from 'react';
+import Nav from './components/Nav'
 
 export const metadata = {
   title: 'OSP Project',
   description: 'SQL Visual Excel Database',
 }
 
-export default function RootLayout({
+
+const Rootlayout = ({
   children,
 }: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+  children: React.ReactNode;
+}) => {
+  return(
+    <div>
+      <Nav />
+      {children}
+    </div>
   )
 }
+export default Rootlayout;
