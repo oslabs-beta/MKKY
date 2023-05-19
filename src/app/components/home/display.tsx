@@ -1,9 +1,11 @@
+//'use client'
+
 import React, { useState, useEffect } from "react";
 import Chart from "chart.js";
 import {Pool} from 'pg';
 import {Client} from '@elephantsql/client';
 
-
+import "./style.css"
 
 const Display = async () =>{
 
@@ -32,11 +34,27 @@ const Display = async () =>{
 
   allTables.rows.pop()
   
+  let allTablesFields = [];
+  //let newFieldsArr = []
+  allTablesData.forEach(table => {
+    let newFieldsArr = []
+    table.fields.forEach(field => {
+      newFieldsArr.push(field.name)
+    })
+    allTablesFields.push(newFieldsArr)
+  })
+
+
+  function onSubmitQuery(tableID, rowID, columnID) {
+    return
+  }
+
   return (
     <div>
       {console.log("All DATA", allTablesData)}
       {console.log("FIELDS", allTablesData[0].fields)}
       {console.log(allTables.rows)}
+      {console.log("ALL FIELDS", allTablesFields)}
 
       <style>{`td { border : 4px solid blue}`}</style>
         {allTables.rows.map((table:any, index: number) => (
@@ -44,17 +62,21 @@ const Display = async () =>{
             <h1>{table.table_name}</h1>
               
               <table> 
+               {allTablesFields[index].map((fields:any) => (
+               
+                  <th>{fields}</th>
                 
+               ))} 
               {allTablesData[index].rows.map((row: any) => (
                 <tr key={row.id}>
                   {Object.keys(row).map((cell:any) => (
-                    <td>{row[cell]}</td>
+                    
+                    <td><input value = {row[cell]} ></input></td>
                   ))}
                 </tr>
                 )) 
                 }
-              </table>
-              
+              </table>     
                     
           </div>
       ))}
