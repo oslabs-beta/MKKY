@@ -15,7 +15,6 @@ export default function Login(){
     }
         return(
             <div>
-                
                 <button onClick={() => signIn(undefined, { callbackUrl: 'http://localhost:3000/components/home'}) } type="button" className='btn btn-primary'>
                     SignIn
                 </button>
