@@ -1,14 +1,18 @@
-import React from "react"
+'use client'
+import React, { useState } from "react"
 //import ReactDOM from 'react-dom';
-import Display from "./display"
+import Display from "./display";
+import InputField from './InputField';
 
 function App() {
-    const uri = "postgres://mmethhdd:OuENml3Y4wNyMcCHb69l16Cn3l2osxzh@drona.db.elephantsql.com/mmethhdd";
-  
+    const [stringURI, setURI] = useState<string>("");
     return (
       <div>
         <h1>WELCOME TO THE HOME</h1>
-        <Display />
+        <InputField stringURI={stringURI} setURI={setURI}/>
+        {stringURI !== "" ? <Display /> : null}
+        {/* <Display /> */}
+        </InputField>                
       </div>
     );
   };

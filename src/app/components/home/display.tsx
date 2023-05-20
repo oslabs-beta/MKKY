@@ -1,24 +1,21 @@
-import React, { useState, useEffect } from "react";
 import Chart from "chart.js";
 import {Pool} from 'pg';
 import {Client} from '@elephantsql/client';
 
 
 
-const Display = async () =>{
-
+const Display:any = async ( { stringURI }) =>{
   let pg = require('pg')
-  const URI = 'postgres://mmethhdd:OuENml3Y4wNyMcCHb69l16Cn3l2osxzh@drona.db.elephantsql.com/mmethhdd'
-  let client = new pg.Client(URI)
+  let client = new pg.Client('pkhpeqch:Qrc5hxjOCrnFdEZsPd8YxzPEfDMDjUTG@drona.db.elephantsql.com/pkhpeqch')
   client.connect()
-
+  // console.log('PROPS:', stringURI)
   const allTables = await client.query("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';")
-  //allTables.rows.pop()
+  allTables.rows.pop()
   const allTableNames = Object.values(allTables.rows)
 
-
+  
   console.log('TABLE NAMES', allTableNames)
-
+  
   let allTablesData = []
   let tableData;
 
@@ -31,7 +28,6 @@ const Display = async () =>{
   tableData = await client.query(`SELECT * FROM ${allTableNames[0].table_name}`);
 
   allTables.rows.pop()
-  
   return (
     <div>
       {console.log("All DATA", allTablesData)}
