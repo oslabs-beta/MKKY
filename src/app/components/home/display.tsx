@@ -2,10 +2,9 @@ import Chart from "chart.js";
 import {Pool} from 'pg';
 import {Client} from '@elephantsql/client';
 
-
-
-const Display:any = async ( { stringURI }) =>{
+const Display:any = async () =>{
   let pg = require('pg')
+  // let client = new pg.Client(`${stringURI}`)
   let client = new pg.Client('pkhpeqch:Qrc5hxjOCrnFdEZsPd8YxzPEfDMDjUTG@drona.db.elephantsql.com/pkhpeqch')
   client.connect()
   // console.log('PROPS:', stringURI)
@@ -13,10 +12,10 @@ const Display:any = async ( { stringURI }) =>{
   allTables.rows.pop()
   const allTableNames = Object.values(allTables.rows)
 
-  
+  console.log('PROPS:', stringURI)
   console.log('TABLE NAMES', allTableNames)
   
-  let allTablesData = []
+  let allTablesData:any = []
   let tableData;
 
   //Removing SQL default table

@@ -1,8 +1,8 @@
 'use client'
 import React, { useState } from 'react';
-import Display from './display'
+// import Display from './display'
 
-const InputField = ({ stringURI, setURI, Display }): any => {
+const InputField = ({ stringURI, setURI }: any) => {
     const submitHandler = (e: React.FormEvent) => {
         e.preventDefault();
         setURI(e.target.value);
@@ -16,7 +16,7 @@ const InputField = ({ stringURI, setURI, Display }): any => {
             value={stringURI}
                 onChange={(e) => setURI(e.target.value)}
                 placeholder='Enter URI here' className='input_box'/>
-                <button className='input_submit' type='submit' onSubmit={submitHandler}{ ...Display }>Enter</button>
+                <button className='input_submit' type='submit' onSubmit={submitHandler}>Enter</button>
         </form>
     )
 }

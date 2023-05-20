@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from "react"
+import React from "react"
 //import ReactDOM from 'react-dom';
 import Display from "./display";
 import InputField from './InputField';
@@ -9,10 +9,11 @@ function App() {
     return (
       <div>
         <h1>WELCOME TO THE HOME</h1>
-        <InputField stringURI={stringURI} setURI={setURI}/>
-        {stringURI !== "" ? <Display /> : null}
-        {/* <Display /> */}
-        </InputField>                
+        {/* /* <InputField stringURI={stringURI} setURI={setURI}/>  */
+         /* {stringURI !== "" ? <Display stringURI={stringURI}/> : null} */
+        /* /* <Display stringURI={stringURI}/> */
+        /* </InputField>   */        }
+         <Display />       
       </div>
     );
   };
