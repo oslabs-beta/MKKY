@@ -13,7 +13,7 @@ function App() {
          /* {stringURI !== "" ? <Display stringURI={stringURI}/> : null} */
         /* /* <Display stringURI={stringURI}/> */
         /* </InputField>   */        }
-         <Display />       
+         <Display URI = {uri}/>       
       </div>
     );
   };
