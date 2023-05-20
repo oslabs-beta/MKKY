@@ -17,14 +17,15 @@ const Rootlayout = ({
 }: {
   children: React.ReactNode
 }) => {
+  
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html>
+      <body>
         <Provider>
           <Nav />
         {children}
         </Provider>
-        </body>
+      </body>
     </html>
   )
 }
