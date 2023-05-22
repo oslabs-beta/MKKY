@@ -1,15 +1,19 @@
-//when there is layout.tsx, next.js goes to layout to render rather than just the page
+import React from "react"
+//import ReactDOM from 'react-dom';
+import Display from "./display"
 
-'use client'
-import {signOut} from 'next-auth/react';
-
-export default function Something(){
+function App() {
+    const uri = "postgres://mmethhdd:OuENml3Y4wNyMcCHb69l16Cn3l2osxzh@drona.db.elephantsql.com/mmethhdd";
+  
     return (
-        <div className='flex justify-center'>
-        <h1 className='text-center'> MKKY </h1>
-        <h2 className="mt-10">FUCK YESSSSSS</h2>
-        <button onClick={() => signOut({ callbackUrl: 'http://localhost:3000'})}> SignOut</button>
-        </div>
-      )
-};
+      <div>
+        <h1>WELCOME TO THE HOME</h1>
+        <Display URI = {uri}/>
+      </div>
+    );
+  };
+  
+  export default App;
+
+
 
