@@ -15,6 +15,7 @@
     "autoprefixer": "10.4.14",
     "chart.js": "^4.3.0",
     "daisyui": "^2.51.6",
+    "fs": "^0.0.1-security",
     "next": "13.4.2",
     "pg": "^8.11.0",
     "postcss": "8.4.23",

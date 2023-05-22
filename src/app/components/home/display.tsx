@@ -8,8 +8,8 @@ import {Client} from '@elephantsql/client';
 import TableCell from "./tableCell";
 
 import "./style.css"
-
-const Display = async (props) =>{
+const Display: (props: any) => Promise<React.JSX.Element>
+const Displa= async (props) =>{y 
 
   let pg = require('pg')
   //const URI = 'postgres://mmethhdd:OuENml3Y4wNyMcCHb69l16Cn3l2osxzh@drona.db.elephantsql.com/mmethhdd'
