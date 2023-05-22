@@ -1,28 +1,31 @@
-//'use client'
+// 'use client'
 
-import React, { useState, useEffect } from "react";
-import Chart from "chart.js";
-import {Pool} from 'pg';
-import {Client} from '@elephantsql/client';
-
+import React from "react";
+import { Client } from '@elephantsql/client';
+// import pg from 'pg/lib/index.js';
 import TableCell from "./tableCell";
 
 import "./style.css"
 
-const Display = async (props) =>{
-
-const Display:any = async () =>{
-  let pg = require('pg')
-  //const URI = 'postgres://mmethhdd:OuENml3Y4wNyMcCHb69l16Cn3l2osxzh@drona.db.elephantsql.com/mmethhdd'
-  const URI = props.URI
+const Display = async ( props ) => {
+  // const [data, setData] = useState(null);
+  let pg = require('pg');
+  
+  const URI = 'postgres://pkhpeqch:Qrc5hxjOCrnFdEZsPd8YxzPEfDMDjUTG@drona.db.elephantsql.com/pkhpeqch'
+  // const URI = props.uri;
+  // console.log('PROPS :', props)
+  console.log('URI :', URI)
   let client = new pg.Client(URI)
   client.connect()
   // console.log('PROPS:', stringURI)
+ 
+
+ 
   const allTables = await client.query("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';")
   allTables.rows.pop()
   const allTableNames = Object.values(allTables.rows)
 
-  console.log('PROPS:', stringURI)
+  // console.log('PROPS:', props)
   console.log('TABLE NAMES', allTableNames)
   
   let allTablesData:any = []
@@ -46,11 +49,13 @@ const Display:any = async () =>{
       newFieldsArr.push(field.name)
     })
     allTablesFields.push(newFieldsArr)
-  })
+  // dataFetch();
+  })  
 
-  function onSubmitQuery(tableID, rowID, columnID) {
-    return
-  }
+  
+  // function onSubmitQuery(tableID, rowID, columnID) {
+  //   return
+  // }
 
   //const [value, setValue] = useState("")
 
@@ -79,7 +84,6 @@ const Display:any = async () =>{
                     <TableCell data = {row[cell]} keyName = {allTablesFields[index][0]} rowID = {row.id} colID = {allTablesFields[index][colIndex]} tableName = {table.table_name}></TableCell>
                    
                   ))}
-                  {/* {console.log("ROWID", row.id, "COLID", allTablesFields[index], "TABLE", table.table_name)} */}
                 </tr>
                 )) 
                 }
