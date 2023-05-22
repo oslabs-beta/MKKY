@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Chart from "chart.js";
 import {Pool} from 'pg';
-import {Client} from '@elephantsql/client';
+import {Client} from 'pg';
 
 import TableCell from "./tableCell";
 
@@ -14,7 +14,7 @@ const Display = async (props) =>{
   let pg = require('pg')
   //const URI = 'postgres://mmethhdd:OuENml3Y4wNyMcCHb69l16Cn3l2osxzh@drona.db.elephantsql.com/mmethhdd'
   const URI = props.URI
-  let client = new pg.Client(URI)
+  let client = new Client(URI)
   client.connect()
 
   const allTables = await client.query("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';")
@@ -47,10 +47,7 @@ const Display = async (props) =>{
     allTablesFields.push(newFieldsArr)
   })
 
-  function onSubmitQuery(tableID, rowID, columnID) {
-    return
-  }
-
+  //client.end()
   //const [value, setValue] = useState("")
 
   return (
