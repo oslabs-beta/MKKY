@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@types/pg": "^8.6.6",
-    "webpack": "^5.83.1"
+    "webpack": "^5.83.1",
+    "webpack-cli": "^5.1.1"
   }
 }

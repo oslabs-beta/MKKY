@@ -1,4 +1,4 @@
-//'use client'
+// 'use client'
 
 import React, { useState, useEffect } from "react";
 import Chart from "chart.js";
@@ -22,7 +22,7 @@ const Display:any = async () =>{
   allTables.rows.pop()
   const allTableNames = Object.values(allTables.rows)
 
-  console.log('PROPS:', stringURI)
+  // console.log('PROPS:', stringURI)
   console.log('TABLE NAMES', allTableNames)
   
   let allTablesData:any = []
@@ -90,6 +90,7 @@ const Display:any = async () =>{
     </div>
   );
   };
+}
   
   export default Display;
 
