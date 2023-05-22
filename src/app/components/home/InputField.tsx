@@ -23,9 +23,9 @@ const InputField = ( props ) => {
                 onChange={(e) => setURI(e.target.value)}
                 placeholder='Enter URI here' className='input_box'/>
                 <button className='input_submit' type='submit' onSubmit={submitHandler}>Enter</button>
-               {showComponent && 
+               {/* {showComponent && 
                     <Display stringURI={stringURI}/>
-                    }
+                    } */}
         </form>
     )
 }

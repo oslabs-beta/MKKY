@@ -12,10 +12,9 @@ function App (props) {
       <div>
         <h1>WELCOME TO THE HOME</h1>
         
-        {/* <InputField>
+        <InputField props={props}>
        <Display uri={props.uri}/>
-        </InputField> */}
-        <InputField />
+        </InputField>
       </div>
     );
   };

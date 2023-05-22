@@ -7,7 +7,7 @@ import TableCell from "./tableCell";
 
 import "./style.css"
 
-const Display = async ( props ) => {
+const Display:any = async ( props ) => {
   // const [data, setData] = useState(null);
   let pg = require('pg');
   
