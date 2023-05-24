@@ -27,6 +27,7 @@
   "devDependencies": {
     "@types/pg": "^8.6.6",
     "cloudflare-worker-webpack-plugin": "^2.0.3",
-    "webpack": "^5.83.1"
+    "webpack": "^5.83.1",
+    "wrangler": "^3.0.1"
   }
 }

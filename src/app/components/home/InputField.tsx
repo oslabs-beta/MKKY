@@ -1,32 +1,34 @@
 'use client'
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import Display from './display'
 
-const InputField = ( props ) => {
+const InputField = () => {
     let [stringURI, setURI] = useState<string>("");
     const [showComponent, setShowComponent] = useState(false);
-    const inputURIRef = useRef<HTMLInputElement>(null!)
-    const submitHandler = (e: React.FormEvent) => {
+    // const inputURIRef = useRef<HTMLInputElement>(null!)
+    const submitHandler = (e) => {
         e.preventDefault();
-        setURI(e.target.value);
+        setURI(stringURI);
         // stringURI = inputURIRef.current.value;
-        // setShowComponent(true);
+        setShowComponent(true);
     }
-    console.log("stringURI: ", stringURI);
+    
     return (
+        <div>
         <form
         className='forminput'
+        onSubmit={submitHandler}
         >
-            <input type='input'
+            <input 
+            type='input'
             // value={stringURI}
-            ref={inputURIRef}
+            // ref={inputURIRef}
                 onChange={(e) => setURI(e.target.value)}
                 placeholder='Enter URI here' className='input_box'/>
-                <button className='input_submit' type='submit' onSubmit={submitHandler}>Enter</button>
-               {/* {showComponent && 
-                    <Display stringURI={stringURI}/>
-                    } */}
+                <button className='input_submit' type='submit'>Enter</button>
         </form>
+        {showComponent && <Display uri={stringURI}/>} 
+        </div>
     )
 }
 
