@@ -1,14 +1,19 @@
 import NextAuth from "next-auth/next";
 import GoogleProvider from 'next-auth/providers/google' //OAuth
 import GitHubProvider from "next-auth/providers/github";
-// import CredentialsProvider from "next-auth/providers/credentials";
-import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
-import clientPromise from "../lib/mongodb"
+import CredentialsProvider from "next-auth/providers/credentials";
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
+import clientPromise from "../lib/mongodb";
+import { addSyntheticLeadingComment } from "typescript";
+// import User from "../../../model/user";
+// import { signIn } from "next-auth/react";
 // import { connectToDB } from '../../../utils/database';
-// import User from '../../../model/user';
 
 const handler = NextAuth({
   adapter: MongoDBAdapter(clientPromise),
+  // session: {
+  //   strategy: "jwt"
+  // },
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_ID!,
@@ -26,25 +31,48 @@ const handler = NextAuth({
             clientSecret: process.env.GITHUB_SECRET!,
         }),
         // CredentialsProvider({
-        //   type: 'credentials',
-        //   credentials: {},
-        //   authorize(credentials, req) {
-        //     const { email, password } = credentials as { 
-        //       email: string;
-        //       password: string; 
+        //   type: "credentials",
+        //   credentials: {
+        //     username: {
+        //       label: "Email",
+        //       type: "text",
+        //     },
+        //     password:{
+        //       label: "Password",
+        //       tyle: "password"
+        //     },
+        //   },
+        //   authorize : (credentials) => {
+        //     if(credentials.username === "john@gmail.com" && credentials.password === "test"){
+        //         return {
+        //           id: 2,
+        //           name: "John",
+        //           email: "johndoe@test.com",
+        //         };
         //     }
-
-        //   }
-        // })      //         STILL WORKING ON THIS TO ADD CLIENT BASE ON EMAIL AND PASSWORD WITHOUT OATH  DONT DELETE JUST YET `
+        //     return null;
+        //   },
+        // })
     ],
-    //when working with handler variable, we need to use callbacks
-    
+    // callbacks: {
+    //   jwt : async ({ token, user}) => {
+    //     if (user) {
+    //       token.id = user.id;
+    //     }
+    //     return token;
+    //   },
+    //   session: ({ session, token}) => {
+    //     if(token){
+    //       session.id = token.id;
+    //     }
+    //     return session;
+    //   },
+    // },
+    // secret: "test",
+    // jwt: {
+    //   secret: "test",
+    //   encryption: true,
+    // }
 })
   
   export {handler as GET, handler as POST};
-  //this will overwrite my callbackUrl in login page.tsx
-  // callbacks: {
-  //     async redirect({ url, baseUrl}){
-  //         return baseUrl;
-  //     }
-  // }
