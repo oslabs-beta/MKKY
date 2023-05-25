@@ -36,7 +36,8 @@ const Nav = () => {
             </Link>
           </li>
           
-        </ul>) : (<Something/>)}
+        </ul>) : (
+          <Something/>)}
       </div>
     </nav>
   )
