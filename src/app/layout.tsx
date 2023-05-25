@@ -1,6 +1,7 @@
 import './globals.css'
+import React from 'react';
+import Nav from './components/Nav'
 import { Inter } from 'next/font/google'
-import Display from './components/home/display'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -9,14 +10,22 @@ export const metadata = {
   description: 'SQL Visual Excel Database',
 }
 
-export default function RootLayout({
+
+const Rootlayout = ({
   children,
 }: {
   children: React.ReactNode
-}) {
+}) => {
+  
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html>
+      <body>
+        <Provider>
+          <Nav />
+        {children}
+        </Provider>
+      </body>
     </html>
   )
 }
+export default Rootlayout;

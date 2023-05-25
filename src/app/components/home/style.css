@@ -2,7 +2,7 @@
 
 body {
   box-sizing: border-box;
-  color: #220f5f;
+  color: #8a6969;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -39,6 +39,7 @@ tr th {
 
 th {
     background-color: lightcyan;
+    font-size: 22px;
 }
 
 tr td {
