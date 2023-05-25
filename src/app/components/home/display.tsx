@@ -16,31 +16,39 @@ const Display = async (props) =>{
   let pg = require('pg')
   const URI = props.URI 
   
-  //let client = new pg.Client(URI + '?cf_bypass=true')
+  let client = new pg.Client(URI)
   // let client = new Pool({
   //   connectionString:URI
   // })
-  //client.connect() 
-  const allTables = await executeQuery("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';")
-  //const allTables = await client.query("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';")
+  client.connect() 
+  //const allTables = await executeQuery("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';")
+  const allTables = await client.query("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';")
   //allTables.rows.pop()
-  const allTableNames = Object.values(allTables.rows)
-  console.log('TABLE NAMES', allTableNames)
+  
+  console.log('TABLE NAMES', allTables.rows)
 
   let allTablesData = []
   let tableData;
   
+  for(let i = 0; i<  allTables.rows.length; i++){
+    if (allTables.rows[i]["table_name"] === "pg_stat_statements"){
+      allTables.rows.splice(1,i)
+    }
+    
+  }
+  const allTableNames = Object.values(allTables.rows)
+  console.log("NOW THE TABLES ARE ", allTableNames )
   //Removing SQL default table
-  allTableNames.pop()
+  //allTableNames.pop()
   allTableNames.forEach( async (table) => {
-    tableData = await executeQuery(`SELECT * FROM ${table.table_name}`)
-    //tableData = await client.query(`SELECT * FROM ${table.table_name}`)
+    //tableData = await executeQuery(`SELECT * FROM ${table.table_name}`)
+    tableData = await client.query(`SELECT * FROM ${table.table_name}`)
     allTablesData.push(tableData)
   })
-  tableData = await executeQuery(`SELECT * FROM ${allTableNames[0].table_name}`);
-  //tableData = await client.query(`SELECT * FROM ${allTableNames[0].table_name}`);
+  //tableData = await executeQuery(`SELECT * FROM ${allTableNames[0].table_name}`);
+  tableData = await client.query(`SELECT * FROM ${allTableNames[0].table_name}`);
 
-  allTables.rows.pop()
+  //allTables.rows.pop()
   
   let allTablesFields = [];
   //let newFieldsArr = []
@@ -58,10 +66,6 @@ const Display = async (props) =>{
   return (
     
     <div>
-      {console.log("All DATA", allTablesData)}
-      {console.log("FIELDS", allTablesData[0].fields)}
-      {console.log(allTables.rows)}
-      {console.log("ALL FIELDS", allTablesFields)}
 
       <style>{`td { border : 4px solid blue}`}</style>
         {allTables.rows.map((table:any, index: number) => (
@@ -103,10 +107,9 @@ const Display = async (props) =>{
       //LOOP 2: FIELDS
       //LOOP 2: TABLE DATA
 
-        // const submitQuery = (tableName, colID, newVal, keyName, rowID) => {
-  //   const updateQuery = `UPDATE ${tableName} SET ${colID} = ${newVal} WHERE ${keyName} = ${rowID} `
-  //   //const updateQuery = `UPDATE ${props.table_name} SET ${props.colID} = ___ WHERE ${props.keyName} = ${props.rowID} `
-  //   return client.query(updateQuery)
-  //}
-  //const [value, setValue] = useState("")
-  //await client.release() 
+
+  //TEST QUERIES
+  // {console.log("All DATA", allTablesData)}
+  // {console.log("FIELDS", allTablesData[0].fields)}
+  // {console.log(allTables.rows)}
+  // {console.log("ALL FIELDS", allTablesFields)}
