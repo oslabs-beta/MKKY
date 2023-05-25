@@ -2,7 +2,7 @@
 
 body {
   box-sizing: border-box;
-  color: #8a6969;
+  color: #1f2937;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -57,7 +57,7 @@ input {
 }
 
 input:hover {
-  background-color: #382f22;
+  background-color: #fff4e4;
 }
 
 input:focus {
