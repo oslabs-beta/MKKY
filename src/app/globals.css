@@ -2,20 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} 
 
+ /*
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -24,4 +25,32 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  background-color: rgb(225, 229, 230);
+  height: 100vh;
+  color: black;
+} */
+.sign-in-form{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+.sign-in-form input{
+  display: block;
+  padding: 5px;
+  border: 1px gray solid;
+  border-radius: 3px;
+  margin-top: 15px;
+}
+.sign-in-form h1{
+  font-size: 18px;
+  text-align: center;
+}
+.sign-in-form form{
+  padding: 50px 15px;
+  border: 2px gray solid;
+  border-radius: 3px;
+}
+
+
