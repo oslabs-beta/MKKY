@@ -25,8 +25,11 @@ export async function PATCH(request: Request) {
       // let client = new pg.Client(URI)
       // //let updateQuery = `UPDATE ${request.body.tableName} SET ${colID} = ${newVal} WHERE ${keyName} = ${rowID} `
       // await client.connect()
-
-      return await client.query(await request.json())
+      try{
+        return await client.query(await request.json())
+      }catch (error){
+        console.log(request.json())
+      }
     
     //   return NextResponse.json({ data });
 }
