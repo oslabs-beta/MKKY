@@ -2,21 +2,29 @@
 
 import { NextPage } from 'next';
 import {signIn} from 'next-auth/react';
-import { FormEventHandler, useState } from 'react';
+// import { FormEventHandler, useState } from 'react';
 
 interface Props{}
 
-const Login: NextPage = (props): JSX.Element => {
-  // const [userInfo, setUserInfo] = useState({ email: "", password: ""});
-  // const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
-  //   e.preventDefault()
 
-  //   const res = await signIn('credentials', {
-  //     email: userInfo.email,
-  //     password: userInfo.password,
-  //     redirect: false,
+const Login: NextPage = (props): JSX.Element => {
+  // const [authState, setAuthState] = useState({ email: "", password: ""});
+
+  // const handleFieldChange = (e) => {
+  //   setAuthState(old => ({ ...old, [e.target.id]: e.target.value }))
+  // }
+
+  // const handleAuth = async () => {
+  //   signIn('credentials', {
+  //     ...authState,
+  //     redirect: false
+  //   }).then(response =>{
+  //     console.log(response)
+  //   }).then(error => {
+  //     console.log(error)
   //   })
-  // };
+  // }
+  
   return (
     <div className='sign-in-form'> 
       <form>
@@ -26,12 +34,19 @@ const Login: NextPage = (props): JSX.Element => {
         <label>Password:</label>
         <input type="password" placeholder='**********' />
         <input type="submit" value="Login" />
-        {/* <button onClick={() => signIn(undefined, { callbackUrl: 'http://localhost:3000/components/home'}) } type="button" className='btn btn-primary'>
+        {/* <button onClick={handleAuth} type="button" className='btn btn-primary'>
           Login
         </button> */}
-        <button onClick={() => signIn(undefined, { callbackUrl: 'http://localhost:3000/components/home'}) } type="button" className='btn btn-primary'>
-          Sign In With Auth
+        <div className= 'flex flex-col items-center mt-4'>
+        <button onClick={() => signIn("google", { callbackUrl: 'http://localhost:3000/components/home'}) } type="button" className='btn btn-primary'>
+          Sign In With Google
         </button>
+        </div>   
+        <div className= 'flex flex-col items-center mt-4'>
+        <button onClick={() => signIn("github", { callbackUrl: 'http://localhost:3000/components/home'}) } type="button" className='btn btn-primary'>
+          Sign In With Github
+        </button>
+        </div>
       </form>
     </div>
   )
