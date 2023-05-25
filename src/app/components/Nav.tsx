@@ -1,7 +1,13 @@
+'use client'
 import Link from 'next/link';
 import Image from 'next/image';
+import Something from './signOut/page';
+import { useSession } from 'next-auth/react';
+
 
 const Nav = () => {
+  const { data: session } = useSession();
+
   return (
     <nav className='flex flex-row justify-between items-center'>
       <div>
@@ -18,7 +24,7 @@ const Nav = () => {
       </div>
 
       <div className="flex-none">
-        <ul className="menu menu-horizontal px-1">
+        {!session ? (<ul className="menu menu-horizontal px-1">
           <li className='mr-2'>
             <Link href="/components/login" className='flex-initial'>
               <button className='text-lg'>Login</button>
@@ -30,7 +36,7 @@ const Nav = () => {
             </Link>
           </li>
           
-        </ul>
+        </ul>) : (<Something/>)}
       </div>
     </nav>
   )
