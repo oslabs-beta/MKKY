@@ -34,7 +34,7 @@ tr th {
   padding: 12px;
   border: 1px solid #eeeeee;
   text-align: left;
-  background-color: rgba(217, 221, 146, 0.2);
+  background-color: rgba(14, 14, 9, 0.2);
 }
 
 th {
@@ -57,7 +57,7 @@ input {
 }
 
 input:hover {
-  background-color: #fffaf3;
+  background-color: #382f22;
 }
 
 input:focus {
