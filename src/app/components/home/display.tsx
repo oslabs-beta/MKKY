@@ -6,7 +6,7 @@ import {Pool} from 'pg';
 //import { useServerEffect } from 'next/server';
 
 import TableCell from "./tableCell";
-
+import Wrapper from "./wrapper"
 import "./style.css"
 
 import {executeQuery} from './db'
@@ -27,7 +27,6 @@ const Display = async (props) =>{
   const allTableNames = Object.values(allTables.rows)
   console.log('TABLE NAMES', allTableNames)
 
-  
   let allTablesData = []
   let tableData;
   
@@ -52,7 +51,7 @@ const Display = async (props) =>{
     })
     allTablesFields.push(newFieldsArr)
   })
-  
+   
   //await client.end()
 
 
