@@ -11,7 +11,7 @@
 import { NextResponse } from 'next/server';
 //const URI = "postgres://mmethhdd:OuENml3Y4wNyMcCHb69l16Cn3l2osxzh@drona.db.elephantsql.com/mmethhdd";
 let pg = require('pg')
-const URI = "postgres://mmethhdd:OuENml3Y4wNyMcCHb69l16Cn3l2osxzh@drona.db.elephantsql.com/mmethhdd";
+const URI = "postgres://jztpyupa:iQAwglVEeRo17CrNnmg3IEKQstbLb-bu@jelani.db.elephantsql.com/jztpyupa";
 let client = new pg.Client(URI)
 //let updateQuery = `UPDATE ${request.body.tableName} SET ${colID} = ${newVal} WHERE ${keyName} = ${rowID} `
 client.connect()

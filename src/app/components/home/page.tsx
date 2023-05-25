@@ -3,7 +3,7 @@ import React from "react"
 import Display from "./display"
 
 function App() {
-    const uri = "postgres://mmethhdd:OuENml3Y4wNyMcCHb69l16Cn3l2osxzh@drona.db.elephantsql.com/mmethhdd";
+    const uri = "postgres://jztpyupa:iQAwglVEeRo17CrNnmg3IEKQstbLb-bu@jelani.db.elephantsql.com/jztpyupa";
     
     return (
       <div>
