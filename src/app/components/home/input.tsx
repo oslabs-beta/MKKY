@@ -22,8 +22,10 @@ const Input = ({
         URI: value
       })
     })
-    .then(data => data.json())
-    .then(data => setShowComponent(data))
+    .then(response => response.json())
+    .then(data => {
+      setShowComponent(data)
+    })
     
   }
   if (!showComponent){

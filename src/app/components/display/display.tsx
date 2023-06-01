@@ -6,22 +6,29 @@ import {Pool} from 'pg';
 import TableCell from "./tableCell";
 import Wrapper from "../home/wrapper"
 import "./style.css"
+import { METHODS } from "http";
 
 //const UpdateQueryContext = createContext(null)
 const Display = async () =>{
-
-  const response = await fetch('/api/', {
-   
+  console.log('IN DISPLAY')
+  let allTables;
+  const response = await fetch('http://localhost:3000/api/methods/', {
+    headers:{ 
+      'Content-Type': 'application/json'
+    },
+    method: 'GET'
   })
   .then(data => data.json())
-  .then(data => console.log(data))
-  let pg = require('pg')
-  // const URI = "postgres://jxbiwedv:tWMx8_U1YtUH3Noj4vFCNMVW1yHOfEWb@jelani.db.elephantsql.com/jxbiwedv";
-  let client = new pg.Client('postgres://jxbiwedv:tWMx8_U1YtUH3Noj4vFCNMVW1yHOfEWb@jelani.db.elephantsql.com/jxbiwedv')
-  //let updateQuery = `UPDATE ${request.body.tableName} SET ${colID} = ${newVal} WHERE ${keyName} = ${rowID} `
-  client.connect()
-  //const allTables = await executeQuery("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';")
-  const allTables = await client.query("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';")
+  .then(data => {
+    allTables = data;
+  })
+  // let pg = require('pg')
+  // // const URI = "postgres://jxbiwedv:tWMx8_U1YtUH3Noj4vFCNMVW1yHOfEWb@jelani.db.elephantsql.com/jxbiwedv";
+  // let client = new pg.Client('postgres://jxbiwedv:tWMx8_U1YtUH3Noj4vFCNMVW1yHOfEWb@jelani.db.elephantsql.com/jxbiwedv')
+  // //let updateQuery = `UPDATE ${request.body.tableName} SET ${colID} = ${newVal} WHERE ${keyName} = ${rowID} `
+  // client.connect()
+  // //const allTables = await executeQuery("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';")
+  // const allTables = await client.query("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';")
   //allTables.rows.pop()
   
   console.log('TABLE NAMES', allTables.rows)
