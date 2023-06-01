@@ -8,19 +8,19 @@ let client = new pg.Client(URI)
 // let pool = new Pool({
 // connectionString: URI
 // })
-client.connect()
-//let client = pool.getConnection()
-//let connection = client.getConnection()
-export const executeQuery = (query) => {
-    try{
+// client.connect()
+// //let client = pool.getConnection()
+// //let connection = client.getConnection()
+// export const executeQuery = (query) => {
+//     try{
          
-        console.log('Query Successful')
-        let res = client.query(query)
+//         console.log('Query Successful')
+//         let res = client.query(query)
         
-        return res
+//         return res
         
-    } catch (error){
-        console.log('Query NOT Successful')
-    }
-}
+//     } catch (error){
+//         console.log('Query NOT Successful')
+//     }
+// }
 

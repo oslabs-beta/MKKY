@@ -9,6 +9,7 @@ function App() {
       <div>
         <h1>WELCOME TO THE HOME</h1>
         <Display URI = {uri}/>
+        
       </div>
     );
   };
