@@ -1,4 +1,4 @@
-// import TableCell from "./tableCell";
+import TableCell from "./display/tableCell";
 
 // import {executeQuery} from './db'
 
