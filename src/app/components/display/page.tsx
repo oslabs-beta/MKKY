@@ -1,9 +1,9 @@
 
 import React from 'react'
 import Display from './display'
-type Props = {}
 
-const App = (props: Props) => {
+
+const App = () => {
   return (
     <div>
       <Display />
