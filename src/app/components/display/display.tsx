@@ -1,27 +1,33 @@
-// 'use client'
-
-import React , {createContext} from "react";
+import React , {createContext , useEffect} from "react";
 import Chart from "chart.js";
 import {Pool} from 'pg';
 import TableCell from "./tableCell";
 import Wrapper from "../home/wrapper"
 import "./style.css"
 import { METHODS } from "http";
-
+import clientData from '../home/input';
 //const UpdateQueryContext = createContext(null)
 const Display = async () =>{
-  console.log('IN DISPLAY')
   let allTables;
-  const response = await fetch('http://localhost:3000/api/methods/', {
-    headers:{ 
-      'Content-Type': 'application/json'
-    },
-    method: 'GET'
-  })
-  .then(data => data.json())
-  .then(data => {
-    allTables = data;
-  })
+//   useEffect(() => {
+//   const response = fetch('http://localhost:3000/api/methods/', {
+//     headers: { 
+//       'Content-Type': 'application/json'
+//     },
+//     method: 'GET'
+//   })
+//   .then(data => data.json())
+//   .then(data => {
+//     allTables = data;
+//   })
+// }, []);
+console.log(clientData);
+    await fetch('http://localhost:3000/api/methods/', {
+      method: 'POST',
+      body: JSON.stringify({clientData: clientData}),
+    })
+    .then(data => data.json())
+    .then(data => (allTables = data))
   // let pg = require('pg')
   // // const URI = "postgres://jxbiwedv:tWMx8_U1YtUH3Noj4vFCNMVW1yHOfEWb@jelani.db.elephantsql.com/jxbiwedv";
   // let client = new pg.Client('postgres://jxbiwedv:tWMx8_U1YtUH3Noj4vFCNMVW1yHOfEWb@jelani.db.elephantsql.com/jxbiwedv')
@@ -46,25 +52,25 @@ const Display = async () =>{
   console.log("NOW THE TABLES ARE ", allTableNames )
   //Removing SQL default table
   //allTableNames.pop()
-  allTableNames.forEach( async (table) => {
-    //tableData = await executeQuery(`SELECT * FROM ${table.table_name}`)
-    tableData = await client.query(`SELECT * FROM ${table.table_name}`)
-    allTablesData.push(tableData)
-  })
-  //tableData = await executeQuery(`SELECT * FROM ${allTableNames[0].table_name}`);
-  tableData = await client.query(`SELECT * FROM ${allTableNames[0].table_name}`);
+  // allTableNames.forEach( async (table) => {
+  //   //tableData = await executeQuery(`SELECT * FROM ${table.table_name}`)
+  //   tableData = await client.query(`SELECT * FROM ${table.table_name}`)
+  //   allTablesData.push(tableData)
+  // })
+  // //tableData = await executeQuery(`SELECT * FROM ${allTableNames[0].table_name}`);
+  // tableData = await client.query(`SELECT * FROM ${allTableNames[0].table_name}`);
 
-  //allTables.rows.pop()
+  // //allTables.rows.pop()
   
-  let allTablesFields = [];
-  //let newFieldsArr = []
-  allTablesData.forEach(table => {
-    let newFieldsArr = []
-    table.fields.forEach(field => {
-      newFieldsArr.push(field.name)
-    })
-    allTablesFields.push(newFieldsArr)
-  })
+  // let allTablesFields = [];
+  // //let newFieldsArr = []
+  // allTablesData.forEach(table => {
+  //   let newFieldsArr = []
+  //   table.fields.forEach(field => {
+  //     newFieldsArr.push(field.name)
+  //   })
+  //   allTablesFields.push(newFieldsArr)
+  // })
    
   //await client.end()
 

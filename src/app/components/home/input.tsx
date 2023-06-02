@@ -24,9 +24,11 @@ const Input = ({
     })
     .then(response => response.json())
     .then(data => {
-      setShowComponent(data)
+      setShowComponent(true)
+      sessionStorage.setItem('clientData', value)
     })
-    
+    // export const clientData = sessionStorage.getItem('clientData');
+    // console.log(test1);
   }
   if (!showComponent){
     return (
@@ -40,8 +42,9 @@ const Input = ({
       </div>
     )
   } else{
-    router.push("/components/display")
+    router.push('/components/display');
   }
 }
+const clientData = sessionStorage.getItem('clientData');
 
-export default Input
+export default [Input, clientData]
