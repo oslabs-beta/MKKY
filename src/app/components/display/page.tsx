@@ -1,6 +1,6 @@
 
 import React from 'react'
-import Display from './display'
+import Display from '../home/display'
 
 
 const App = () => {

@@ -1,6 +1,6 @@
 'use client'
 import React, { useState,useRef }from 'react'
-import Display from "../display/display"
+import Display from "./display"
 import Link from 'next/link';
 import { useRouter } from "next/navigation";
 type Props = {}
@@ -24,7 +24,7 @@ const Input = ({
     })
     .then(response => response.json())
     .then(data => {
-      setShowComponent(data)
+      setShowComponent(true)
     })
     
   }
@@ -40,7 +40,10 @@ const Input = ({
       </div>
     )
   } else{
-    router.push("/components/display")
+    return(
+    // router.push("/components/display")
+    <Display uri={value} />
+    )
   }
 }
 

@@ -1,27 +1,32 @@
-// 'use client'
+'use client'
 
-import React , {createContext} from "react";
+import React , {createContext, useEffect, useState} from "react";
 import Chart from "chart.js";
 import {Pool} from 'pg';
-import TableCell from "./tableCell";
-import Wrapper from "../home/wrapper"
-import "./style.css"
+import TableCell from "../display/tableCell";
+import Wrapper from "./wrapper"
+// import "./style.css"
 import { METHODS } from "http";
 
 //const UpdateQueryContext = createContext(null)
-const Display = async () =>{
-  console.log('IN DISPLAY')
-  let allTables;
-  const response = await fetch('http://localhost:3000/api/methods/', {
+const Display = ({ uri }) =>{
+  console.log('IN DISPLAY:', uri)
+  const [data, setData] = useState({});
+  useEffect(() => {
+    const response = fetch('http://localhost:3000/api/methods/', {
     headers:{ 
       'Content-Type': 'application/json'
     },
-    method: 'GET'
+    method: 'POST',
+    body: JSON.stringify({stringURI: uri})
   })
   .then(data => data.json())
   .then(data => {
-    allTables = data;
+    setData(data);
+    console.log('FRONTEND RESPONSE TABLESSS:', data)
   })
+}, [])
+  
   // let pg = require('pg')
   // // const URI = "postgres://jxbiwedv:tWMx8_U1YtUH3Noj4vFCNMVW1yHOfEWb@jelani.db.elephantsql.com/jxbiwedv";
   // let client = new pg.Client('postgres://jxbiwedv:tWMx8_U1YtUH3Noj4vFCNMVW1yHOfEWb@jelani.db.elephantsql.com/jxbiwedv')
@@ -31,40 +36,39 @@ const Display = async () =>{
   // const allTables = await client.query("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';")
   //allTables.rows.pop()
   
-  console.log('TABLE NAMES', allTables.rows)
 
-  let allTablesData = []
-  let tableData;
+  // let allTablesData = []
+  // let tableData;
   
-  for(let i = 0; i<  allTables.rows.length; i++){
-    if (allTables.rows[i]["table_name"] === "pg_stat_statements"){
-      allTables.rows.splice(1,i)
-    }
+  // for(let i = 0; i<  allTables.rows.length; i++){
+  //   if (allTables.rows[i]["table_name"] === "pg_stat_statements"){
+  //     allTables.rows.splice(1,i)
+  //   }
     
-  }
-  const allTableNames = Object.values(allTables.rows)
-  console.log("NOW THE TABLES ARE ", allTableNames )
-  //Removing SQL default table
-  //allTableNames.pop()
-  allTableNames.forEach( async (table) => {
-    //tableData = await executeQuery(`SELECT * FROM ${table.table_name}`)
-    tableData = await client.query(`SELECT * FROM ${table.table_name}`)
-    allTablesData.push(tableData)
-  })
-  //tableData = await executeQuery(`SELECT * FROM ${allTableNames[0].table_name}`);
-  tableData = await client.query(`SELECT * FROM ${allTableNames[0].table_name}`);
+  // }
+  // const allTableNames = Object.values(allTables.rows)
+  // console.log("NOW THE TABLES ARE ", allTableNames )
+  // //Removing SQL default table
+  // //allTableNames.pop()
+  // allTableNames.forEach( async (table) => {
+  //   //tableData = await executeQuery(`SELECT * FROM ${table.table_name}`)
+  //   tableData = await client.query(`SELECT * FROM ${table.table_name}`)
+  //   allTablesData.push(tableData)
+  // })
+  // //tableData = await executeQuery(`SELECT * FROM ${allTableNames[0].table_name}`);
+  // tableData = await client.query(`SELECT * FROM ${allTableNames[0].table_name}`);
 
   //allTables.rows.pop()
   
-  let allTablesFields = [];
-  //let newFieldsArr = []
-  allTablesData.forEach(table => {
-    let newFieldsArr = []
-    table.fields.forEach(field => {
-      newFieldsArr.push(field.name)
-    })
-    allTablesFields.push(newFieldsArr)
-  })
+  // let allTablesFields = [];
+  // //let newFieldsArr = []
+  // allTablesData.forEach(table => {
+  //   let newFieldsArr = []
+  //   table.fields.forEach(field => {
+  //     newFieldsArr.push(field.name)
+  //   })
+  //   allTablesFields.push(newFieldsArr)
+  // })
    
   //await client.end()
 
@@ -74,21 +78,21 @@ const Display = async () =>{
     <div>
 
       <style>{`td { border : 4px solid blue}`}</style>
-        {allTables.rows.map((table:any, index: number) => (
+        {data.allTableNames.map((table:any, index: number) => (
           
           <div>
             <h2>{table.table_name}</h2>
               
               <table> 
-               {allTablesFields[index].map((fields:any) => (
+               {data.allTablesFields[index].map((fields:any) => (
                
                   <th>{fields}</th>
                ))} 
-              {allTablesData[index].rows.map((row: any) => (
+              {data.allTablesData[index].map((row: any) => (
                 <tr key={row.id}>
                   {Object.keys(row).map((cell:any, colIndex: number) => (
                     // <td><input value = {row[cell]} onInput={(event)=> {submitQuery(table.table_name, allTablesFields[index][colIndex], event.target.value, allTablesFields[index][0], row.id)}}></input></td>
-                    <TableCell URI = {URI} data = {row[cell]} keyName = {allTablesFields[index][0]} rowID = {row.id} colID = {allTablesFields[index][colIndex]} tableName = {table.table_name} ></TableCell>
+                    <TableCell URI = {URI} data = {row[cell]} keyName = {data.allTablesFields[index][0]} rowID = {row.id} colID = {data.allTablesFields[index][colIndex]} tableName = {table.table_name} ></TableCell>
                   
                   ))}
                   {/* {console.log("ROWID", row.id, "COLID", allTablesFields[index], "TABLE", table.table_name)} */}

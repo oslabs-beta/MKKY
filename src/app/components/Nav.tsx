@@ -7,7 +7,7 @@ import { useSession } from 'next-auth/react';
 
 const Nav = () => {
   const { data: session } = useSession();
-
+  console.log('THE SESSION:', session?.user.email)
   return (
     <nav className='flex flex-row justify-between items-center'>
       <div>
