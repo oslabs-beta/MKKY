@@ -23,6 +23,11 @@ body {
 h1 {
     font-family: 'Poppins', sans-serif;
     font-size: 40px;
+    
+}
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
 }
 table {
   border-collapse: collapse;
