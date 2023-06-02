@@ -1,6 +1,6 @@
 'use client'
 //import ReactDOM from 'react-dom';
-import Display from "../display/display"
+import Display from "./display"
 import Input from "./input"
 
 function App() {
