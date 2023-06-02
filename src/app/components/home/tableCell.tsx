@@ -15,7 +15,7 @@ function TableCell (props) {
     const [value, setValue] = useState(`${props.data}`);
     //const updateQuery = `UPDATE ${props.table_name} SET ${props.colID} = ${value} WHERE ${props.keyName} = ${props.rowID} `
    
-    async function submitQuery(tableName, colID, newVal, keyName, rowID){
+    async function submitQuery(tableName, colID, newVal, keyName, rowID, uri){
         
         let updateQuery = `UPDATE ${tableName} SET ${colID} = '${newVal}' WHERE ${keyName} = ${rowID} `
         //executeQuery(updateQuery)
@@ -24,7 +24,7 @@ function TableCell (props) {
                     headers: {
                         'Content-Type': 'application/json',
                       },
-                    body: JSON.stringify(updateQuery)
+                    body: JSON.stringify({uri: uri, query: updateQuery})
           
                 })
         //const updateQuery = `UPDATE ${props.table_name} SET ${props.colID} = ${value} WHERE ${props.keyName} = ${props.rowID} `
@@ -35,7 +35,7 @@ function TableCell (props) {
     //console.log("KEYNAME", props.keyName, "ROWID", props.rowID, "COLID", props.colID, "TABLE", props.tableName)
     return (
         
-        <td><input value = {value} onChange={(event) => submitQuery(props.tableName, props.colID, event.target.value, props.keyName, props.rowID)} ></input></td>
+        <td><input value = {value} onChange={(event) => submitQuery(props.tableName, props.colID, event.target.value, props.keyName, props.rowID, props.URI)} ></input></td>
     )
 }
  
