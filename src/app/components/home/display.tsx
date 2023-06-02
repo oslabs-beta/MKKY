@@ -3,7 +3,7 @@
 import React , {createContext, useEffect, useState} from "react";
 import Chart from "chart.js";
 import {Pool} from 'pg';
-import TableCell from "../display/tableCell";
+import TableCell from "./tableCell";
 import Wrapper from "./wrapper"
 // import "./style.css"
 import { METHODS } from "http";
@@ -12,6 +12,7 @@ import { METHODS } from "http";
 const Display = ({ uri }) =>{
   console.log('IN DISPLAY:', uri)
   const [data, setData] = useState({});
+  const [showData, setShowData] = useState(false);
   useEffect(() => {
     const response = fetch('http://localhost:3000/api/methods/', {
     headers:{ 
@@ -23,10 +24,52 @@ const Display = ({ uri }) =>{
   .then(data => data.json())
   .then(data => {
     setData(data);
-    console.log('FRONTEND RESPONSE TABLESSS:', data)
+    setShowData(true);
+    console.log('FRONTEND RESPONSE TABLESSS:', data.allTablesData[0])
   })
 }, [])
+  if (showData)  {
+    return (
+    
+      <div>
   
+        <style>{`td { border : 4px solid blue}`}</style>
+        {console.log('ALL DATA:', data)}
+          {data.allTableNames.map((table:any, index: number) => (
+            
+            <div>
+              <h2>{table.table_name}</h2>
+                
+                <table> 
+                 {data.allTablesFields[index].map((fields:any) => (
+                 
+                    <th>{fields}</th>
+                 ))} 
+                {data.allTablesData[index].rows.map((row: any) => (
+                  <tr key={row.id}>
+                    {Object.keys(row).map((cell:any, colIndex: number) => (
+                      // <td><input value = {row[cell]} onInput={(event)=> {submitQuery(table.table_name, allTablesFields[index][colIndex], event.target.value, allTablesFields[index][0], row.id)}}></input></td>
+                      <TableCell URI = {uri} data = {row[cell]} keyName = {data.allTablesFields[index][0]} rowID = {row.id} colID = {data.allTablesFields[index][colIndex]} tableName = {table.table_name} ></TableCell>
+                    
+                    ))}
+                    {/* {console.log("ROWID", row.id, "COLID", allTablesFields[index], "TABLE", table.table_name)} */}
+                  </tr>
+                  )) 
+                  }
+                </table>     
+                      
+            </div>
+        ))}
+      </div>
+    )
+  }
+  else  {
+    return (
+      <div>
+        <h1>Loading...</h1>
+      </div>
+    )
+  }
   // let pg = require('pg')
   // // const URI = "postgres://jxbiwedv:tWMx8_U1YtUH3Noj4vFCNMVW1yHOfEWb@jelani.db.elephantsql.com/jxbiwedv";
   // let client = new pg.Client('postgres://jxbiwedv:tWMx8_U1YtUH3Noj4vFCNMVW1yHOfEWb@jelani.db.elephantsql.com/jxbiwedv')
@@ -73,42 +116,47 @@ const Display = ({ uri }) =>{
   //await client.end()
 
 
-  return (
+  // return (
     
-    <div>
+  //   <div>
 
-      <style>{`td { border : 4px solid blue}`}</style>
-        {data.allTableNames.map((table:any, index: number) => (
+  //     <style>{`td { border : 4px solid blue}`}</style>
+  //     {console.log('ALL DATA:', data)}
+  //       {data.allTableNames.map((table:any, index: number) => (
           
-          <div>
-            <h2>{table.table_name}</h2>
+  //         <div>
+  //           <h2>{table.table_name}</h2>
               
-              <table> 
-               {data.allTablesFields[index].map((fields:any) => (
+  //             <table> 
+  //              {data.allTablesFields[index].map((fields:any) => (
                
-                  <th>{fields}</th>
-               ))} 
-              {data.allTablesData[index].map((row: any) => (
-                <tr key={row.id}>
-                  {Object.keys(row).map((cell:any, colIndex: number) => (
-                    // <td><input value = {row[cell]} onInput={(event)=> {submitQuery(table.table_name, allTablesFields[index][colIndex], event.target.value, allTablesFields[index][0], row.id)}}></input></td>
-                    <TableCell URI = {URI} data = {row[cell]} keyName = {data.allTablesFields[index][0]} rowID = {row.id} colID = {data.allTablesFields[index][colIndex]} tableName = {table.table_name} ></TableCell>
+  //                 <th>{fields}</th>
+  //              ))} 
+  //             {data.allTablesData[index].map((row: any) => (
+  //               <tr key={row.id}>
+  //                 {Object.keys(row).map((cell:any, colIndex: number) => (
+  //                   // <td><input value = {row[cell]} onInput={(event)=> {submitQuery(table.table_name, allTablesFields[index][colIndex], event.target.value, allTablesFields[index][0], row.id)}}></input></td>
+  //                   <TableCell URI = {URI} data = {row[cell]} keyName = {data.allTablesFields[index][0]} rowID = {row.id} colID = {data.allTablesFields[index][colIndex]} tableName = {table.table_name} ></TableCell>
                   
-                  ))}
-                  {/* {console.log("ROWID", row.id, "COLID", allTablesFields[index], "TABLE", table.table_name)} */}
-                </tr>
-                )) 
-                }
-              </table>     
+  //                 ))}
+  //                 {/* {console.log("ROWID", row.id, "COLID", allTablesFields[index], "TABLE", table.table_name)} */}
+  //               </tr>
+  //               )) 
+  //               }
+  //             </table>     
                     
-          </div>
-      ))}
-    </div>
-  );
-  };
+  //         </div>
+  //     ))}
+  //   </div>
+  // )
+  // );
+  // };
+  // <div>
+  //   <h1>hello</h1>
+  //   </div>
   
   
-  export default Display;
+  // export default Display;
 
   
     
@@ -208,4 +256,5 @@ const Display = ({ uri }) =>{
 //   );
 // };
 
-// export default Display;
+}
+export default Display;
