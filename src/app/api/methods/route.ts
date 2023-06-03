@@ -7,6 +7,7 @@ export const POST = async(req, res) => {
   let pool = new pg.Pool({connectionString: stringURI})
   let client = await pool.connect()
   const allTables = await client.query("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';")
+
   for(let i = 0; i<  allTables.rows.length; i++){
     if (allTables.rows[i]["table_name"] === "pg_stat_statements"){
       allTables.rows.splice(1,i)
@@ -17,6 +18,10 @@ export const POST = async(req, res) => {
   let tableData;
   let allTablesData = [];
   allTableNames.forEach( async (table) => {
+    tableData = await client.query(`SELECT * FROM ${table.table_name}`)
+    allTablesData.push(tableData)
+  })
+  tableData = await client.query(`SELECT * FROM ${allTableNames[0].table_name}`);
     tableData = await client.query(`SELECT * FROM ${table.table_name}`)
     allTablesData.push(tableData)
   })
