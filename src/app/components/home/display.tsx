@@ -30,7 +30,8 @@ const Display = ({ uri }) =>{
   if (showData)  {
     return (
     
-      <div class='overflow-x-auto'>
+
+      <div id='extension2'>
         <style>{`td { border : 4px solid blue}`}</style>
           {data.allTableNames.map((table:any, index: number) => (
             

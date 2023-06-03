@@ -25,7 +25,7 @@ const Input = ({
   }
   if (!showComponent){
     return (
-      <div>
+      <div id='extension'>
          <p>URI :</p>
         <input type="text" placeholder='URI' value={value} onChange={(event)=>setValue(event.target.value)}>
         </input>
@@ -36,7 +36,13 @@ const Input = ({
     )
   } else{
     return(
-    <Display uri={value} />
+
+    // router.push("/components/display")
+    <div id='extension2'>
+      <button onClick={() => window.location.reload()}>Disconnect</button>
+      <Display uri={value} />
+    </div>
+
     )
   }
 }

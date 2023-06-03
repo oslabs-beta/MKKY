@@ -6,7 +6,9 @@ import Input from "./input"
 function App() {
  
     return (
-      <div class='homeDiv'>
+
+      <div id="extension">
+
         <h1>PSQL</h1>
         <Input/>      
       </div>
