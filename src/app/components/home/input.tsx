@@ -38,7 +38,7 @@ const Input = ({
     return(
 
     // router.push("/components/display")
-    <div id='extension2'>
+    <div>
       <button onClick={() => window.location.reload()}>Disconnect</button>
       <Display uri={value} />
     </div>
