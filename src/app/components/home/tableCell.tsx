@@ -5,7 +5,7 @@ import Chart from "chart.js";
 import {Pool, Client} from 'pg';
 import {useRouter} from "next/navigation"
 
-import "./style.css"
+import "../../globals.css"
 //import {executeQuery} from "./db2"
 import {PATCH} from '../../api/route'
 
