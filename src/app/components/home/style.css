@@ -69,3 +69,8 @@ input:focus {
   outline: 1px solid #ccc;
   border: 1px solid #ccc;
 }
+
+.overflow-x-auto {
+  display: flex;
+  flex-direction: column;
+}
