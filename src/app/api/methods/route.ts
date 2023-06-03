@@ -14,18 +14,13 @@ export const POST = async(req, res) => {
     }
   }
   const allTableNames = Object.values(allTables.rows)
-  console.log("NOW THE TABLES ARE ", allTableNames )
   let tableData;
   let allTablesData = [];
   allTableNames.forEach( async (table) => {
     tableData = await client.query(`SELECT * FROM ${table.table_name}`)
     allTablesData.push(tableData)
   })
-  tableData = await client.query(`SELECT * FROM ${allTableNames[0].table_name}`);
-    tableData = await client.query(`SELECT * FROM ${table.table_name}`)
-    allTablesData.push(tableData)
-  })
-  tableData = await client.query(`SELECT * FROM ${allTableNames[0].table_name}`);
+  tableData = await client.query(`SELECT * FROM ${allTableNames[0].table_name}`);  
   let allTablesFields = [];
   allTablesData.forEach(table => {
     let newFieldsArr = []

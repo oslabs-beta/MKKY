@@ -1,10 +1,6 @@
 'use client'
 import React, { useState } from 'react'
 import Display from "./display"
-import React, { useState,useRef }from 'react'
-import Display from "./display"
-import Link from 'next/link';
-import { useRouter } from "next/navigation";
 type Props = {}
 const Input = ({
   children,

@@ -31,16 +31,13 @@ const Display = ({ uri }) =>{
     return (
     
       <div class='overflow-x-auto'>
-      <div>  
         <style>{`td { border : 4px solid blue}`}</style>
-        {console.log('ALL DATA:', data)}
           {data.allTableNames.map((table:any, index: number) => (
             
             <div>
               <h2>{table.table_name}</h2>
                 
                 <table class="table w-full table-zebra"> 
-                <table> 
                  {data.allTablesFields[index].map((fields:any) => (
                  
                     <th>{fields}</th>
