@@ -48,10 +48,8 @@ export const POST = async(req,res) => {
   try{
     return new Response(JSON.stringify(true))
   globalURI = URI
-  try{
-    return new Response(JSON.stringify(true))
-    
-  } catch (error){
+  }
+  catch (error){
     return new Response(JSON.stringify("ERROR IN POST"))
   }
 }
