@@ -25,13 +25,12 @@ const Display = ({ uri }) =>{
   .then(data => {
     setData(data);
     setShowData(true);
-    console.log('FRONTEND RESPONSE TABLESSS:', data.allTablesData[0])
   })
 }, [])
   if (showData)  {
     return (
     
-      <div>
+      <div class='overflow-x-auto'>
   
         <style>{`td { border : 4px solid blue}`}</style>
         {console.log('ALL DATA:', data)}
@@ -40,7 +39,7 @@ const Display = ({ uri }) =>{
             <div>
               <h2>{table.table_name}</h2>
                 
-                <table> 
+                <table class="table w-full table-zebra"> 
                  {data.allTablesFields[index].map((fields:any) => (
                  
                     <th>{fields}</th>

@@ -7,7 +7,7 @@ function App() {
     // const uri = "postgres://jxbiwedv:tWMx8_U1YtUH3Noj4vFCNMVW1yHOfEWb@jelani.db.elephantsql.com/jxbiwedv";
  
     return (
-      <div>
+      <div class='homeDiv'>
         <h1>PSQL</h1>
         <Input/>
         {/* <Display URI={uri}/> */}
