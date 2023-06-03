@@ -7,7 +7,7 @@ function App() {
  
     return (
 
-      <div id="extension">
+      <div>
 
         <h1>PSQL</h1>
         <Input/>      

@@ -16,8 +16,8 @@
     --background-end-rgb: 0, 0, 0;
   }
 }   */
-/* 
-html {
+
+/* html {
   height: 100%;
 
 } */
@@ -34,10 +34,10 @@ body {
   color: black;
 }
 #extension {
-  height: 100%vh;
+  height: 100vh;
 }
 #extension2 {
-  height: 100%vh;
+  height: 100%;
 }
 .sign-in-form{
   width: 100%;
