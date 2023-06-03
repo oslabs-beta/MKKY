@@ -24,7 +24,9 @@ const Nav = () => {
       </div>
 
       <div className="flex-none">
-        {!session ? (<ul className="menu menu-horizontal px-1">
+        {!session ? (
+        
+        <ul className="menu menu-horizontal px-1">
           <li className='mr-2'>
             <Link href="/components/login" className='flex-initial'>
               <button className='text-lg'>Login</button>
@@ -37,6 +39,7 @@ const Nav = () => {
           </li>
           
         </ul>) : (
+          
           <Something/>)}
       </div>
     </nav>
