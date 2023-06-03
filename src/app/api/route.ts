@@ -44,28 +44,12 @@ let client;
 
 export const POST = async(req,res) => {
   const { URI } = await req.json()
-  console.log("URI=======", URI)
-  // let pg = require('pg')
   globalURI = URI
   try{
-  //   client = new pg.Client(globalURI)
-  //   client.connect()
-  //   //clientobj['client'] = client 
-  //   console.log('CONNECTED: ', globalURI)
-    
-    
     return new Response(JSON.stringify(true))
-    
-  } catch (error){
-    console.log(error)
+  globalURI = URI
+  }
+  catch (error){
     return new Response(JSON.stringify("ERROR IN POST"))
   }
-}
-// console.log("OUR CLIENT", client)
-// console.log("this is global uri : ", globalURI)
-
-export const GET = async(req, res) => {
-  console.log("hitting the GET")
-  
-  return await client.query("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';")
 }
