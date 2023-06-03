@@ -11,6 +11,7 @@ export default function Something(){
             <button onClick={() => signOut({ callbackUrl: 'http://localhost:3000'})} className='text-lg' >Sign Out</button>
           </Link> 
         </div>
+        
       )
 };
 

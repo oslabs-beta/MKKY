@@ -42,7 +42,10 @@ const Input = ({
   } else{
     return(
     // router.push("/components/display")
-    <Display uri={value} />
+    <div>
+      <button onClick={() => window.location.reload()}>Disconnect</button>
+      <Display uri={value} />
+    </div>
     )
   }
 }
