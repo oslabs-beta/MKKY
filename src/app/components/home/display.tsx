@@ -31,7 +31,7 @@ const Display = ({ uri }) =>{
   if (showData)  {
     return (
     
-      <div>
+      <div id='extension2'>
   
         <style>{`td { border : 4px solid blue}`}</style>
         {console.log('ALL DATA:', data)}
