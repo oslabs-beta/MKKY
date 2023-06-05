@@ -13,13 +13,13 @@ const handler = NextAuth({
         GoogleProvider({
             clientId: process.env.GOOGLE_ID!,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-            authorization: {
-                params: {
-                  prompt: "consent",
-                  access_type: "offline",
-                  response_type: "code"
-                }
-              }
+            // authorization: {
+            //     params: {
+            //       prompt: "consent",
+            //       access_type: "offline",
+            //       response_type: "code"
+            //     }
+            //   }
         }),
         GitHubProvider({
             clientId: process.env.GITHUB_ID!,
@@ -38,7 +38,6 @@ const handler = NextAuth({
         // })      //         STILL WORKING ON THIS TO ADD CLIENT BASE ON EMAIL AND PASSWORD WITHOUT OATH  DONT DELETE JUST YET `
     ],
     //when working with handler variable, we need to use callbacks
-    
 })
   
   export {handler as GET, handler as POST};
