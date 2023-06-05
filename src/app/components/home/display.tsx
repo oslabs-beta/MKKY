@@ -64,7 +64,8 @@ const Display = ({ uri }) =>{
   else  {
     return (
       <div>
-        <h1>Loading...</h1>
+        <h1>Loading</h1>
+        <span className="loading loading-bars loading-lg"></span>
       </div>
     )
   }
