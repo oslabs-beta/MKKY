@@ -1,6 +1,6 @@
 import NextAuth from "next-auth/next";
 import GoogleProvider from 'next-auth/providers/google' //OAuth
-import GitHubProvider from "next-auth/providers/github";
+// import GitHubProvider from "next-auth/providers/github";
 // import CredentialsProvider from "next-auth/providers/credentials";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
 import clientPromise from "../lib/mongodb"
@@ -21,10 +21,10 @@ const handler = NextAuth({
             //     }
             //   }
         }),
-        GitHubProvider({
-            clientId: process.env.GITHUB_ID!,
-            clientSecret: process.env.GITHUB_SECRET!,
-        }),
+        // GitHubProvider({
+        //     clientId: process.env.GITHUB_ID!,
+        //     clientSecret: process.env.GITHUB_SECRET!,
+        // }),
         // CredentialsProvider({
         //   type: 'credentials',
         //   credentials: {},
