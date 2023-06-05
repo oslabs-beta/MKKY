@@ -7,13 +7,16 @@ export const POST = async(req, res) => {
   let pool = new pg.Pool({connectionString: stringURI})
   let client = await pool.connect()
   const allTables = await client.query("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';")
+  console.log("TABLES 1", allTables)
 
   for(let i = 0; i<  allTables.rows.length; i++){
     if (allTables.rows[i]["table_name"] === "pg_stat_statements"){
-      allTables.rows.splice(1,i)
+      allTables.rows.splice(i,1)
     }
   }
+  console.log("TABLES 2", allTables)
   const allTableNames = Object.values(allTables.rows)
+  console.log("ALL TABLE NAME POST SLICE", allTableNames)
   let tableData;
   let allTablesData = [];
   allTableNames.forEach( async (table) => {
