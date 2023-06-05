@@ -30,7 +30,7 @@ const Input = ({
         <input type="text" placeholder='URI' value={value} onChange={(event)=>setValue(event.target.value)}>
         </input>
   
-          <button onClick={(e)=> handleURI(value, e)}>SUBMIT</button>
+          <button className="btn btn-accent" onClick={(e)=> handleURI(value, e)}>SUBMIT</button>
 
       </div>
     )
