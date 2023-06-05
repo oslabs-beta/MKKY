@@ -53,3 +53,13 @@ export const POST = async(req,res) => {
     return new Response(JSON.stringify("ERROR IN POST"))
   }
 }
+
+export const DELETE = async(req, res) => {
+  const { tableName, rowID, colID, uri } = await req.json();
+  let pg = require('pg')
+  let client = new pg.Client(uri)
+  await client.connect()
+  await client.end();
+  console.log('backend tablename:', tableName)
+  return new Response(JSON.stringify('hello'));
+}

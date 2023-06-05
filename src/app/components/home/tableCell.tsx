@@ -30,12 +30,31 @@ function TableCell (props) {
         //const updateQuery = `UPDATE ${props.table_name} SET ${props.colID} = ${value} WHERE ${props.keyName} = ${props.rowID} `
         return setValue(newVal)
     } 
-
+    async function deleteQuery(event, value, tableName, rowID, colID, uri){
+        event.preventDefault();
+        console.log('event value:', value)
+        console.log('row id:', rowID);
+        console.log('col id:', colID);
+        if (value === -1)   {
+            let deleteQuery = `DELETE FROM ${tableName} WHERE row`
+            await fetch('/api', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({tableName: tableName, rowID: rowID, colID: colID, uri: uri})
+            })
+        }        
+    }
     //event.target.value ---> NEWVAL
     //console.log("KEYNAME", props.keyName, "ROWID", props.rowID, "COLID", props.colID, "TABLE", props.tableName)
     return (
         
-        <td><form onSubmit={(event)=>submitQuery(event, props.tableName, props.colID, value, props.keyName, props.rowID, props.URI)}><input value = {value} onChange={(event) => setValue(event.target.value)} ></input></form></td>
+        <td><form onSubmit={(event)=>{
+            deleteQuery(event, value, props.tableName, props.rowID, props.colID, props.URI)
+            submitQuery(event, props.tableName, props.colID, value, props.keyName, props.rowID, props.URI)
+        }
+    }><input value = {value} onChange={(event) => setValue(event.target.value)} ></input></form></td>
     )
 }
  
