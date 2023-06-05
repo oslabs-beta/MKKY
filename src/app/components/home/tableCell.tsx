@@ -15,8 +15,8 @@ function TableCell (props) {
     const [value, setValue] = useState(`${props.data}`);
     //const updateQuery = `UPDATE ${props.table_name} SET ${props.colID} = ${value} WHERE ${props.keyName} = ${props.rowID} `
    
-    async function submitQuery(tableName, colID, newVal, keyName, rowID, uri){
-        
+    async function submitQuery(event, tableName, colID, newVal, keyName, rowID, uri){
+        event.preventDefault()
         let updateQuery = `UPDATE ${tableName} SET ${colID} = '${newVal}' WHERE ${keyName} = ${rowID} `
         //executeQuery(updateQuery)
         let responce = await fetch('/api', {
@@ -35,7 +35,7 @@ function TableCell (props) {
     //console.log("KEYNAME", props.keyName, "ROWID", props.rowID, "COLID", props.colID, "TABLE", props.tableName)
     return (
         
-        <td><input value = {value} onChange={(event) => submitQuery(props.tableName, props.colID, event.target.value, props.keyName, props.rowID, props.URI)} ></input></td>
+        <td><form onSubmit={(event)=>submitQuery(event, props.tableName, props.colID, value, props.keyName, props.rowID, props.URI)}><input value = {value} onChange={(event) => setValue(event.target.value)} ></input></form></td>
     )
 }
  
