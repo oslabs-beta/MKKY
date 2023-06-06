@@ -65,7 +65,11 @@ body {
 .extension {
   height: 100%;
 }
+.extension2 {
+  height: 70%;
+}
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@600&display=swap');
 
 body {
   box-sizing: border-box;
@@ -85,6 +89,31 @@ body {
   text-align: center;
   font-size: 26px;
   margin-bottom: 30px;
+}
+
+.row4 {
+  display: table;
+  width: 100%;
+}
+
+.column4 {
+  float: left;
+  width: 25%;
+  align-items: center;
+  
+}
+
+.carosel {
+  height: 200px;
+  
+}
+
+#carosel-heading {
+  font-family: 'Geologica', sans-serif;
+}
+
+.carosel-layout {
+  padding: 10px;
 }
 
 h1 {
@@ -141,3 +170,16 @@ input:focus {
  display: grid;
  justify-content: flex-end;
 }
+
+
+
+/* .image-grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-item {
+  flex-basis: 25%;
+  padding: 10px;
+  box-sizing: border-box;
+} */
