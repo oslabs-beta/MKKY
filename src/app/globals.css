@@ -100,7 +100,6 @@ body {
   float: left;
   width: 25%;
   align-items: center;
-  
 }
 
 .carosel {
@@ -172,14 +171,3 @@ input:focus {
 }
 
 
-
-/* .image-grid {
-  display: flex;
-  justify-content: space-between;
-}
-
-.image-item {
-  flex-basis: 25%;
-  padding: 10px;
-  box-sizing: border-box;
-} */

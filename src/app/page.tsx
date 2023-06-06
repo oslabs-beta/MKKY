@@ -5,15 +5,15 @@ import Image from 'next/image';
 const Welcome: React.FC = () => {
   return (
     <div>
-      <div className="flex flex-col items-center">
-        <p className="text-lg mt-5">MKKY PRESENTS: </p>
-        <h1 className="text-5xl font-bold">PostGres-Query-Less</h1>
-        <p className="text-lg mt-5">Visually Interact with your Cloud PostgreSQL Database</p>
+      <div className="flex flex-col items-center z-10">
+        <p className="text-lg mt-5 z-20">MKKY PRESENTS: </p>
+        <h1 className="text-5xl font-bold z-10">PostGres-Query-Less</h1>
+        <p className="text-lg mt-5 z-50">Visually Interact with your Cloud PostgreSQL Database</p>
       </div>
       <br></br>
       <br></br>
       <div className='carosel-layout'>
-        <h1 className='text-4xl' id='carosel-heading' >Compatible Cloud Providers:</h1>
+        <h1 className='text-4xl' id='carosel-heading z-10' >Compatible Cloud Providers:</h1>
         <div className = 'row4'>
           <div className = 'column4'>
             <img className = 'carosel' src = 'https://cdn.gruntwork.io/gruntwork-website/24f52ffe0ccbd746c2103814e50fe009.png'></img>
