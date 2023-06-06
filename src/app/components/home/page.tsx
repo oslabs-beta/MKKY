@@ -1,6 +1,6 @@
 'use client'
 //import ReactDOM from 'react-dom';
-import Display from "./display"
+//import Display from "./display"
 import Input from "./input"
 
 function App() {
@@ -9,16 +9,11 @@ function App() {
 
       <div>
 
-        <h1 className="">PGQL</h1>
+
+        <h1 className="text-center font-bold font-serif">PGQL</h1>
         <Input/>      
       </div>
     );
   };
   
   export default App;
-
-
-
-  // <Input>
-  //         <Display URI={uri}/>
-  //       </ Input>
