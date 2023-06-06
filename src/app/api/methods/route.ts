@@ -1,7 +1,9 @@
 
 
 export const PATCH= async(req, res) => {
+  ('hititng delete patch')
   let theBody = await req.json()
+  console.log('body:', theBody)
   let pg = require('pg')
   const URI = theBody.uri;
   let client = new pg.Client(URI)
@@ -14,6 +16,7 @@ export const PATCH= async(req, res) => {
   // //let updateQuery = `UPDATE ${request.body.tableName} SET ${colID} = ${newVal} WHERE ${keyName} = ${rowID} `
   // client.connect()
   let result =  await client.query(theBody.deleteQuery)
+  console.log('result:', result)
   await client.end();
   return result;
 }

@@ -45,7 +45,6 @@ let client;
 
 export const POST = async(req,res) => {
   const { stringURI } = await req.json()
-  console.log('posturi', stringURI)
   globalURI = stringURI
   try{
     return new Response(JSON.stringify(true))

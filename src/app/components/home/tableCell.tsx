@@ -14,14 +14,14 @@ function TableCell (props) {
     
     const [value, setValue] = useState(`${props.data}`);
     //const updateQuery = `UPDATE ${props.table_name} SET ${props.colID} = ${value} WHERE ${props.keyName} = ${props.rowID} `
-   
     async function submitQuery(event, tableName, colID, newVal, keyName, rowID, uri){
         event.preventDefault()
         //executeQuery(updateQuery)
+        console.log('row:', rowID)
         console.log('newval', newVal)
         if (colID === keyName && newVal == -1)    {
             console.log('tableName:', tableName, 'keyname:', keyName, 'colid:', colID)
-                let deleteQuery = `DELETE FROM ${tableName} WHERE ${keyName} = ${colID}`;
+                let deleteQuery = `DELETE FROM ${tableName} WHERE ${keyName} = ${rowID}`;
                 console.log(deleteQuery);
             await fetch('/api/methods', {
                 method: 'PATCH',
@@ -33,6 +33,7 @@ function TableCell (props) {
         }
         else    {
             let updateQuery = `UPDATE ${tableName} SET ${colID} = '${newVal}' WHERE ${keyName} = ${rowID} `
+            console.log('updateq:', updateQuery)
             await fetch('/api', {
                 method: 'PATCH',
                 headers: {
