@@ -17,42 +17,66 @@ function TableCell (props) {
    
     async function submitQuery(event, tableName, colID, newVal, keyName, rowID, uri){
         event.preventDefault()
-        let updateQuery = `UPDATE ${tableName} SET ${colID} = '${newVal}' WHERE ${keyName} = ${rowID} `
         //executeQuery(updateQuery)
-        let responce = await fetch('/api', {
-                    method: "PATCH",
-                    headers: {
-                        'Content-Type': 'application/json',
-                      },
-                    body: JSON.stringify({uri: uri, query: updateQuery})
-          
-                })
-        //const updateQuery = `UPDATE ${props.table_name} SET ${props.colID} = ${value} WHERE ${props.keyName} = ${props.rowID} `
-        return setValue(newVal)
-    } 
-    async function deleteQuery(event, value, tableName, rowID, colID, uri){
-        event.preventDefault();
-        console.log('event value:', value)
-        console.log('row id:', rowID);
-        console.log('col id:', colID);
-        if (value === -1)   {
-            let deleteQuery = `DELETE FROM ${tableName} WHERE row`
-            await fetch('/api', {
-                method: 'DELETE',
+        console.log('newval', newVal)
+        if (colID === keyName && newVal == -1)    {
+            console.log('tableName:', tableName, 'keyname:', keyName, 'colid:', colID)
+                let deleteQuery = `DELETE FROM ${tableName} WHERE ${keyName} = ${colID}`;
+                console.log(deleteQuery);
+            await fetch('/api/methods', {
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({tableName: tableName, rowID: rowID, colID: colID, uri: uri})
+                body: JSON.stringify({uri, deleteQuery})
             })
-        }        
-    }
+        }
+        else    {
+            let updateQuery = `UPDATE ${tableName} SET ${colID} = '${newVal}' WHERE ${keyName} = ${rowID} `
+            await fetch('/api', {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({uri, updateQuery})
+            })
+        }
+       
+        // let responce = await fetch('/api', {
+        //             method: "PATCH",
+        //             headers: {
+        //                 'Content-Type': 'application/json',
+        //               },
+        //             body: JSON.stringify({uri: uri, query: updateQuery})
+          
+        //         })
+        //const updateQuery = `UPDATE ${props.table_name} SET ${props.colID} = ${value} WHERE ${props.keyName} = ${props.rowID} `
+        return;
+    } 
+    // async function deleteQuery(event, value, tableName, rowID, colID, uri){
+    //     event.preventDefault();
+    //     console.log('event value:', value)
+    //     console.log('row id:', rowID);
+    //     console.log('col id:', colID);
+    //     if (value == -1)   {
+    //         // let deleteQuery = `DELETE FROM ${tableName} WHERE row`
+    //         fetch('/api', {
+    //             method: 'DELETE',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify({uri: uri})
+    //         })
+    //     }        
+    //     return;
+    // }
     //event.target.value ---> NEWVAL
     //console.log("KEYNAME", props.keyName, "ROWID", props.rowID, "COLID", props.colID, "TABLE", props.tableName)
     return (
         
         <td><form onSubmit={(event)=>{
-            deleteQuery(event, value, props.tableName, props.rowID, props.colID, props.URI)
             submitQuery(event, props.tableName, props.colID, value, props.keyName, props.rowID, props.URI)
+            // deleteQuery(event, value, props.tableName, props.rowID, props.colID, props.URI)
         }
     }><input value = {value} onChange={(event) => setValue(event.target.value)} ></input></form></td>
     )

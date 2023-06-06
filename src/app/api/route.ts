@@ -22,6 +22,7 @@ export async function PATCH(request: Request) {
   //const {tableName, colID, newVal, keyName, rowID} = request.body
   // console.log("THE BODY", await request.json())
   let theBody = await request.json()
+  console.log('query:', theBody.deleteQuery)
   let pg = require('pg')
   const URI = theBody.uri;
   let client = new pg.Client(URI)
@@ -43,11 +44,12 @@ let globalURI;
 let client;
 
 export const POST = async(req,res) => {
-  const { URI } = await req.json()
-  globalURI = URI
+  const { stringURI } = await req.json()
+  console.log('posturi', stringURI)
+  globalURI = stringURI
   try{
     return new Response(JSON.stringify(true))
-  globalURI = URI
+  globalURI = stringURI
   }
   catch (error){
     return new Response(JSON.stringify("ERROR IN POST"))
@@ -55,11 +57,13 @@ export const POST = async(req,res) => {
 }
 
 export const DELETE = async(req, res) => {
-  const { tableName, rowID, colID, uri } = await req.json();
-  let pg = require('pg')
-  let client = new pg.Client(uri)
-  await client.connect()
-  await client.end();
-  console.log('backend tablename:', tableName)
-  return new Response(JSON.stringify('hello'));
+  console.log('req', req)
+  const { uri } = await req.json();
+  console.log('uri:', uri)
+  // let pg = require('pg')
+  // let client = new pg.Client(uri)
+  // await client.connect()
+  // await client.end();
+  // console.log('backend tablename:', tableName)
+  return new Response(JSON.stringify('hi'));
 }

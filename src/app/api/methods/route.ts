@@ -1,5 +1,22 @@
 
 
+export const PATCH= async(req, res) => {
+  let theBody = await req.json()
+  let pg = require('pg')
+  const URI = theBody.uri;
+  let client = new pg.Client(URI)
+  // //let updateQuery = `UPDATE ${request.body.tableName} SET ${colID} = ${newVal} WHERE ${keyName} = ${rowID} `
+  await client.connect()
+  
+  // let pg = require('pg')
+  // // const URI = "postgres://jxbiwedv:tWMx8_U1YtUH3Noj4vFCNMVW1yHOfEWb@jelani.db.elephantsql.com/jxbiwedv";
+  // let client = new pg.Client(URI)
+  // //let updateQuery = `UPDATE ${request.body.tableName} SET ${colID} = ${newVal} WHERE ${keyName} = ${rowID} `
+  // client.connect()
+  let result =  await client.query(theBody.deleteQuery)
+  await client.end();
+  return result;
+}
 
 export const POST = async(req, res) => {
   const { stringURI } = await req.json();
