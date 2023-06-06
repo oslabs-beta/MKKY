@@ -8,7 +8,7 @@ import {signIn} from 'next-auth/react';
 
 const Nav = () => {
   const { data: session } = useSession();
-  console.log('THE SESSION:', session?.user.email)
+  // console.log('THE SESSION:', session?.user.email)
   return (
     <nav className='flex flex-row justify-between items-center bg-blue-900' id='navBar'>
       <div>

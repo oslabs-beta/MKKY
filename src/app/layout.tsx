@@ -7,7 +7,7 @@ import Provider from './Providers';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'OSP Project',
+  title: 'PGQL',
   description: 'SQL Visual Excel Database',
 }
 
@@ -20,6 +20,11 @@ const Rootlayout = ({
   
   return (
     <html>
+      <link
+        rel='icon'
+        href='/MKKY_logo.svg'
+        sizes='any'
+        />
       <body>
         <Provider>
           <Nav />

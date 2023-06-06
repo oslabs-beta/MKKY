@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -70,6 +69,7 @@ body {
 }
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
 
 body {
   box-sizing: border-box;
@@ -112,7 +112,7 @@ body {
   font-family: 'Geologica', sans-serif;
 }
 
-.carosel-layout {
+.carousel-layout {
   padding: 10px;
 }
 
@@ -187,6 +187,24 @@ input:focus {
   width: 25%
 }
 
+#aboutDiv {
+  padding: 10px;
+}
+
+#about {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.returnURI{
+  margin-left: 93%;
+}
+#return-home{
+  background-color: #D926AA;
+  border-radius: 8px;
+}
+#return-home:hover{
+  background-color: #9D538B;
+}
 /* .image-grid {
   display: flex;
   justify-content: space-between;
