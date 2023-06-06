@@ -40,13 +40,13 @@ const Welcome: React.FC = () => {
       </div>
       <br></br>
       <div className="flex flex-col" id='aboutDiv'>
-        <h1 className="text-3xl font-bold">About PGQL</h1>
-        <p className="text-lg mt-5" id='about'>PostGres-Query-Less(PGQL) is an open-source web application that can be used to connect to any cloud PostgreSQL database to visualize and adjust it's content. We strive to provide our users with a simple interface to communicate with their cloud databases through onClick functionality. When users make changes in their visualized database, queries are automated to adjust their databases directly in real-time.</p>
+        <h1 className="text-3xl font-bold p-10">About PGQL</h1>
+        <p className="text-lg mt-5 px-10" id='about'>PostGres-Query-Less(PGQL) is an open-source web application that can be used to connect to any cloud PostgreSQL database to visualize and adjust it's content. We strive to provide our users with a simple interface to communicate with their cloud databases through onClick functionality. When users make changes in their visualized database, queries are automated to adjust their databases directly in real-time.</p>
       </div>
       <br></br>
 
       <div className='carousel-layout'>
-        <h1 className='text-3xl' id='carousel-heading' >Compatible Cloud Providers:</h1>
+        <h1 className='text-3xl font-bold p-10' id='carousel-heading' >Compatible Cloud Providers:</h1>
 
         <div className = 'row4'>
           <div className = 'column4' id='divimg1'>
@@ -62,6 +62,9 @@ const Welcome: React.FC = () => {
             <img className='carousel' id='img4' src='https://www.digitalocean.com/_next/static/media/do-opensource.b0d0088f.svg'></img>
           </div>
         </div>
+      </div>
+      <div className='flex flex-col p-10' id='creatorsDiv'>
+        <h1 className='text-3xl font-bold'>Meet the Team</h1>
       </div>
     </div>
   );
