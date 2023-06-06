@@ -1,20 +1,21 @@
 'use client'
 
-import React , {createContext, useEffect, useState} from "react";
-import Chart from "chart.js";
-import {Pool} from 'pg';
+import React , {useEffect, useState} from "react";
 import TableCell from "./tableCell";
-import Wrapper from "./wrapper"
 import "./style.css"
-import { METHODS } from "http";
+
 
 //const UpdateQueryContext = createContext(null)
 const Display = ({ uri }) =>{
   console.log('IN DISPLAY:', uri)
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    allTableNames: ['Holder'],
+    allTablesFields: [[]],
+    allTablesData: {rows : ['Holder']}
+  });
   const [showData, setShowData] = useState(false);
-  useEffect(() => {
-    const response = fetch('http://localhost:3000/api/methods/', {
+  useEffect((): any => {
+    fetch('http://localhost:3000/api/methods/', {
     headers:{ 
       'Content-Type': 'application/json'
     },
@@ -26,6 +27,7 @@ const Display = ({ uri }) =>{
     setData(data);
     setShowData(true);
   })
+
 }, [])
   if (showData)  {
     return (
@@ -38,7 +40,7 @@ const Display = ({ uri }) =>{
             <div>
               <h2>{table.table_name}</h2>
                 
-                <table class="table w-full table-compact"> 
+                <table className="table w-full table-compact"> 
                  {data.allTablesFields[index].map((fields:any) => (
                  
                     <th>{fields}</th>
