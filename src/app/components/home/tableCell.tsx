@@ -32,7 +32,7 @@ function TableCell (props) {
     function deleterQuery(event, value, tableName,rowID, colID, uri, keyName){
         event.preventDefault()
         if (value == -1 && colID === keyName){
-            let deleteQuery = `DELETE FROM ${tableName} WHERE ${colID} = ${value}`
+            let deleteQuery = `DELETE FROM ${tableName} WHERE ${colID} = '${value}'`
             fetch('/api/delete', {
                 method: 'POST',
                 headers: {
