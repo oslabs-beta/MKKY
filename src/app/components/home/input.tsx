@@ -25,13 +25,15 @@ const Input = ({
   }
   if (!showComponent){
     return (
+      <div>
       <div id='extension'>
-         <p>URI :</p>
-        <input type="text" placeholder='URI' value={value} onChange={(event)=>setValue(event.target.value)}>
+         <h1>URI :</h1>
+        <input type="text" placeholder='postgres:// your-endpoint' value={value} onChange={(event)=>setValue(event.target.value)}>
         </input>
   
           <button className="btn btn-accent" onClick={(e)=> handleURI(value, e)}>SUBMIT</button>
-
+      </div>
+      
       </div>
     )
   } else{
