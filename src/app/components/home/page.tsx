@@ -9,7 +9,8 @@ function App() {
 
       <div>
 
-        <h1 className="">PGQL</h1>
+
+        <h1 className="text-center font-bold font-serif">PGQL</h1>
         <Input/>      
       </div>
     );

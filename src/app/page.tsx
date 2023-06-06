@@ -9,6 +9,7 @@ const Welcome: React.FC = () => {
   const { data: session } = useSession();
   return (
     <div>
+
       {/* {!session ? (null) : (
         <div className='returnURI'>
           <Link href='/components/home'>
@@ -48,8 +49,10 @@ const Welcome: React.FC = () => {
         <p className="text-lg mt-5" id='about'>PostGres-Query-Less(PGQL) is an open-source web application that can be used to connect to any cloud PostgreSQL database to visualize and adjust it's content. We strive to provide our users with a simple interface to communicate with their cloud databases through onClick functionality. When users make changes in their visualized database, queries are automated to adjust their databases directly in real-time.</p>
       </div>
       <br></br>
+
       <div className='carousel-layout'>
         <h1 className='text-3xl' id='carousel-heading' >Compatible Cloud Providers:</h1>
+
         <div className = 'row4'>
           <div className = 'column4' id='divimg1'>
             <img className='carousel' id='img1'src='https://cdn.gruntwork.io/gruntwork-website/24f52ffe0ccbd746c2103814e50fe009.png'></img>
