@@ -9,7 +9,7 @@ function App() {
 
       <div>
 
-        <h1>PSQL</h1>
+        <h1 className="">PSQL</h1>
         <Input/>      
       </div>
     );
