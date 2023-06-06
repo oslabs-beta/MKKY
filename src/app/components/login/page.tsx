@@ -4,9 +4,9 @@ import { NextPage } from 'next';
 
 import {signIn} from 'next-auth/react';
 
-interface Props{}
 
-const Login: NextPage = (props): JSX.Element => {
+
+const Login: NextPage = (): JSX.Element => {
   return (
     <div className='sign-in-form'> 
       {/* <form> */}

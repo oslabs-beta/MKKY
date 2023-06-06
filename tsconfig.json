@@ -10,7 +10,7 @@
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "rootDir": "./src/app",
+    // "rootDir": "./src/app",
     "outDir": "./src/dist",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -19,6 +19,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "noEmitOnError": true,
     "plugins": [
       {
         "name": "next"

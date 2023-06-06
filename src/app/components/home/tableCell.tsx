@@ -1,13 +1,11 @@
 "use client"
 
-import React, { useState, useEffect } from "react";
-import Chart from "chart.js";
-import {Pool, Client} from 'pg';
-import {useRouter} from "next/navigation"
+import React, { useState } from "react";
+
 
 import "../../globals.css"
 //import {executeQuery} from "./db2"
-import {PATCH} from '../../api/route'
+// import {PATCH} from '../../api/route'
 
 
 function TableCell (props) {
@@ -19,14 +17,14 @@ function TableCell (props) {
         event.preventDefault()
         let updateQuery = `UPDATE ${tableName} SET ${colID} = '${newVal}' WHERE ${keyName} = ${rowID} `
         //executeQuery(updateQuery)
-        let response = await fetch('/api', {
-                    method: "PATCH",
-                    headers: {
-                        'Content-Type': 'application/json',
-                      },
-                    body: JSON.stringify({uri: uri, query: updateQuery})
-          
-                })
+        await fetch('/api', {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json',
+                },
+            body: JSON.stringify({uri: uri, query: updateQuery})
+    
+        })
         //const updateQuery = `UPDATE ${props.table_name} SET ${props.colID} = ${value} WHERE ${props.keyName} = ${props.rowID} `
         return setValue(newVal)
     } 
@@ -34,8 +32,8 @@ function TableCell (props) {
     function deleterQuery(event, value, tableName,rowID, colID, uri, keyName){
         event.preventDefault()
         if (value == -1 && colID === keyName){
-            let deleteQuery = `DELETE FROM ${tableName} WHERE ${colID} = ${value}`
-            let response = fetch('/api/delete', {
+            let deleteQuery = `DELETE FROM ${tableName} WHERE ${colID} = '${value}'`
+            fetch('/api/delete', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
