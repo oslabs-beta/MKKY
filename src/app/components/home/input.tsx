@@ -26,7 +26,7 @@ const Input = () => {
       <div>
       <div id='extension'>
          <h1>URI :</h1>
-        <input type="text" placeholder='postgres:// your-endpoint' value={value} onChange={(event)=>setValue(event.target.value)}>
+        <input type="text" placeholder='postgres:// YOUR-ENDPOINT' value={value} onChange={(event)=>setValue(event.target.value)}>
         </input>
   
           <button className="btn btn-accent" onClick={(e)=> handleURI(value, e)}>SUBMIT</button>
