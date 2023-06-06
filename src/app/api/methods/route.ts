@@ -1,7 +1,7 @@
 
 
 
-export const POST = async(req, res) => {
+export const POST = async(req) => {
   const { stringURI } = await req.json();
   let pg = require('pg')
   let pool = new pg.Pool({connectionString: stringURI})
@@ -15,18 +15,18 @@ export const POST = async(req, res) => {
     }
   }
   console.log("TABLES 2", allTables)
-  const allTableNames = Object.values(allTables.rows)
+  const allTableNames: any[] = Object.values(allTables.rows)
   console.log("ALL TABLE NAME POST SLICE", allTableNames)
-  let tableData;
-  let allTablesData = [];
-  allTableNames.forEach( async (table) => {
+  let tableData: string[] = [];
+  let allTablesData: any[] = [];
+  allTableNames.forEach( async (table: any) => {
     tableData = await client.query(`SELECT * FROM ${table.table_name}`)
     allTablesData.push(tableData)
   })
   tableData = await client.query(`SELECT * FROM ${allTableNames[0].table_name}`);  
-  let allTablesFields = [];
+  let allTablesFields: any[] = [];
   allTablesData.forEach(table => {
-    let newFieldsArr = []
+    let newFieldsArr: any[] = []
     table.fields.forEach(field => {
       newFieldsArr.push(field.name)
     })
