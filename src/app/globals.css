@@ -170,3 +170,16 @@ input:focus {
  display: grid;
  justify-content: flex-end;
 }
+
+
+
+/* .image-grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-item {
+  flex-basis: 25%;
+  padding: 10px;
+  box-sizing: border-box;
+} */
