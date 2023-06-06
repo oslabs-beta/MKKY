@@ -1,4 +1,4 @@
-export const POST = async(req, res) => {
+export const POST = async(req) => {
 
   try{  
     // const { uri, query, value } = req.json();
@@ -17,10 +17,11 @@ export const POST = async(req, res) => {
     await client.query(query)
     await client.end();
     // return result;
-    return new Response(JSON.stringify("hello"));
+    return new Response(JSON.stringify("query successful"));
   }catch(error){
     const body = await req.json();
     console.log(body)
     console.log(error)
+    return new Response(JSON.stringify("query unsuccessful"));
   }
 }

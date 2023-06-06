@@ -1,9 +1,8 @@
 'use client'
 import React from 'react';
 import './globals.css'
-import Image from 'next/image';
+// import Image from 'next/image';
 import { useSession } from 'next-auth/react';
-import Link from 'next/link';
 
 const Welcome: React.FC = () => {
   const { data: session } = useSession();
