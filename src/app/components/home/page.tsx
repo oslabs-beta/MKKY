@@ -1,6 +1,6 @@
 'use client'
 //import ReactDOM from 'react-dom';
-import Display from "./display"
+//import Display from "./display"
 import Input from "./input"
 
 function App() {
@@ -17,9 +17,3 @@ function App() {
   };
   
   export default App;
-
-
-
-  // <Input>
-  //         <Display URI={uri}/>
-  //       </ Input>

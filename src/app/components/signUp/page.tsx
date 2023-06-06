@@ -1,12 +1,12 @@
 'use client';
 import { NextPage } from 'next';
 
-interface Props{}
+
 
 import {signIn} from 'next-auth/react';
 
 
-const Signup: NextPage = (props): JSX.Element => {
+const Signup: NextPage = (): JSX.Element => {
   return (
     <div className='sign-in-form'> 
       <form>
