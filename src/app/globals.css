@@ -171,7 +171,21 @@ input:focus {
  justify-content: flex-end;
 }
 
+#img3 {
+  height: 9.5rem;
+  margin-top: 3%;
+  margin-left: 15%
+}
 
+#img4 {
+  height: 9.5rem;
+  margin-left: 25%;
+  margin-top: 3%
+}
+
+#divimg2 {
+  width: 25%
+}
 
 /* .image-grid {
   display: flex;
