@@ -39,7 +39,9 @@ const Input = ({
 
     // router.push("/components/display")
     <div>
-      <button onClick={() => window.location.reload()}>Disconnect</button>
+      <div id='btnDiv'>
+      <button className="btn btn-error" id='errorBtn' onClick={() => window.location.reload()}>Disconnect</button>
+      </div>
       <Display uri={value} />
     </div>
 

@@ -38,7 +38,7 @@ const Display = ({ uri }) =>{
             <div>
               <h2>{table.table_name}</h2>
                 
-                <table class="table w-full table-zebra"> 
+                <table class="table w-full table-compact"> 
                  {data.allTablesFields[index].map((fields:any) => (
                  
                     <th>{fields}</th>
