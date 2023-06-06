@@ -198,11 +198,14 @@ input:focus {
   margin-left: 93%;
 }
 #return-home{
-  background-color: #D926AA;
+  background-color: #2949d7;
   border-radius: 8px;
+  margin-right: 10%;
+  width: 100%;
+  
 }
 #return-home:hover{
-  background-color: #9D538B;
+  background-color: #0d32d6;
 }
 /* .image-grid {
   display: flex;
