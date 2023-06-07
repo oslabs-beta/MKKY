@@ -23,7 +23,7 @@ const Nav = () => {
         
         </Link>
         <Link href='https://github.com/oslabs-beta/MKKY' className='flex flex-center ml-4'>
-        <Image src='/pngegg.png' alt='Github-pic' height={10} width={90} className='float-left'/>
+        <Image src='/gh.svg' alt='Github-pic' height={10} width={90} className='float-left'/>
         </Link>
        
       </div>
