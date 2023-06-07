@@ -74,7 +74,7 @@ const Welcome: React.FC = () => {
       <div id='container-team'>
         <div id='creatorDiv'>
         <h1 className='text-3xl font-bold text-center'>Meet the Team</h1>
-        <Image src='/IMG_2024.jpg' alt = 'group-pic' height={700} width={700}/>
+        <Image src='/IMG_2024.png' alt = 'group-pic' height={700} width={700}/>
       </div>
       </div>
     </div>
