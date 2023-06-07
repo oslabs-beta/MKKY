@@ -1,19 +1,19 @@
-import React from "react"
+'use client'
 //import ReactDOM from 'react-dom';
-import Display from "./display"
+//import Display from "./display"
+import Input from "./input"
 
 function App() {
-    const uri = "postgres://jztpyupa:iQAwglVEeRo17CrNnmg3IEKQstbLb-bu@jelani.db.elephantsql.com/jztpyupa";
-    
+ 
     return (
+
       <div>
-        <h1>WELCOME TO THE HOME</h1>
-        <Display URI = {uri}/>
+
+
+        <h1 className="text-center font-bold font-serif">PGQL</h1>
+        <Input/>      
       </div>
     );
   };
   
   export default App;
-
-
-

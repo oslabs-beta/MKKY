@@ -1,6 +1,6 @@
 import NextAuth from "next-auth/next";
 import GoogleProvider from 'next-auth/providers/google' //OAuth
-import GitHubProvider from "next-auth/providers/github";
+// import GitHubProvider from "next-auth/providers/github";
 // import CredentialsProvider from "next-auth/providers/credentials";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
 import clientPromise from "../lib/mongodb"
@@ -13,18 +13,18 @@ const handler = NextAuth({
         GoogleProvider({
             clientId: process.env.GOOGLE_ID!,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-            authorization: {
-                params: {
-                  prompt: "consent",
-                  access_type: "offline",
-                  response_type: "code"
-                }
-              }
+            // authorization: {
+            //     params: {
+            //       prompt: "consent",
+            //       access_type: "offline",
+            //       response_type: "code"
+            //     }
+            //   }
         }),
-        GitHubProvider({
-            clientId: process.env.GITHUB_ID!,
-            clientSecret: process.env.GITHUB_SECRET!,
-        }),
+        // GitHubProvider({
+        //     clientId: process.env.GITHUB_ID!,
+        //     clientSecret: process.env.GITHUB_SECRET!,
+        // }),
         // CredentialsProvider({
         //   type: 'credentials',
         //   credentials: {},
@@ -38,7 +38,6 @@ const handler = NextAuth({
         // })      //         STILL WORKING ON THIS TO ADD CLIENT BASE ON EMAIL AND PASSWORD WITHOUT OATH  DONT DELETE JUST YET `
     ],
     //when working with handler variable, we need to use callbacks
-    
 })
   
   export {handler as GET, handler as POST};

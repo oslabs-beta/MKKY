@@ -1,66 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 
-body {
-  box-sizing: border-box;
-  color: #8a6969;
-  font-family: 'Poppins', sans-serif;
-}
+/* @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,800&display=swap');
 
-.container {
-  width: 100%;
-  max-width: 800px;
-  padding: 0 10px;
-  margin: 0 auto;
-  margin-top: 70px;
+
+h2 {
+  background-color: rgb(129, 205, 212) ;
+  font-family: 'Rubik', sans-serif
 }
 
-.title {
-  text-align: center;
-  font-size: 26px;
-  margin-bottom: 30px;
-}
-
-h1 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 40px;
-}
-table {
-  border-collapse: collapse;
-  width: 70%;
-}
-
-tr th {
-  font-size: 18px;
-  padding: 12px;
-  border: 1px solid #eeeeee;
-  text-align: left;
-  background-color: rgba(217, 221, 146, 0.2);
-}
-
-th {
-    background-color: lightcyan;
-    font-size: 22px;
-}
-
-tr td {
-  border: 1px solid #eeeeee;
-  text-align: left;
-}
-
-input {
-  font-size: 16px;
-  background-color: transparent;
-  border: none;
-  width: 91%;
-  padding: 12px 12px;
-  font-family: 'Poppins', sans-serif;
-}
-
-input:hover {
-  background-color: #fffaf3;
-}
-
-input:focus {
-  outline: 1px solid #ccc;
-  border: 1px solid #ccc;
-}
