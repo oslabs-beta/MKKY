@@ -1,0 +1,261 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}   */
+
+/* html {
+  height: 100%;
+
+} */
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  background-color: rgb(225, 229, 230);
+  height:100%;
+  color: black;
+}
+#extension {
+  height: 100vh;
+}
+#extension2 {
+  height: 100%;
+}
+.sign-in-form{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sign-in-form input{
+  display: block;
+  padding: 5px;
+  border: 1px gray solid;
+  border-radius: 3px;
+  margin-top: 15px;
+}
+.sign-in-form h1{
+  font-size: 18px;
+  text-align: center;
+}
+.sign-in-form form{
+  padding: 50px 15px;
+  border: 2px gray solid;
+  border-radius: 3px;
+}
+.extension {
+  height: 100%;
+}
+.extension2 {
+  height: 70%;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
+
+body {
+  box-sizing: border-box;
+  color: #1f2937;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  padding: 0 10px;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+
+.title {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+.row4 {
+  display: table;
+  width: 100%;
+}
+
+.column4 {
+  float: left;
+  width: 25%;
+  align-items: center;
+}
+
+.row2 {
+  display: table;
+  width: 100%;
+}
+
+.column25 {
+  float: left;
+  width: 25%;
+  align-items: center;
+}
+
+.column75 {
+  float: right;
+  width: 75%;
+  align-items: center;
+}
+
+.our-gif {
+  margin-left: 20%;
+}
+.carosel {
+  height: 200px;
+  
+}
+
+#carosel-heading {
+  font-family: 'Geologica', sans-serif;
+}
+
+.carousel-layout {
+  padding: 10px;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    
+}
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+}
+table {
+  border-collapse: collapse;
+  width: 70%;
+}
+
+tr th {
+  font-size: 18px;
+  padding: 12px;
+  border: 1px solid #eeeeee;
+  text-align: left;
+  background-color: rgba(14, 14, 9, 0.2);
+}
+
+th {
+    background-color: lightcyan;
+    font-size: 22px;
+}
+
+tr td {
+  border: 1px solid #eeeeee;
+  text-align: left;
+}
+
+input {
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  width: 91%;
+  padding: 12px 12px;
+  font-family: 'Poppins', sans-serif;
+}
+
+input:hover {
+  background-color: #fff4e4;
+}
+
+input:focus {
+  outline: 1px solid #ccc;
+  border: 1px solid #ccc;
+}
+
+#btnDiv {
+ display: grid;
+ justify-content: flex-end;
+}
+
+#img3 {
+  height: 9.5rem;
+  margin-top: 3%;
+  margin-left: 15%
+}
+
+#img4 {
+  height: 9.5rem;
+  margin-left: 25%;
+  margin-top: 3%
+}
+
+#divimg2 {
+  width: 25%
+}
+
+#aboutDiv {
+  padding: 10px;
+}
+
+#about {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.returnURI{
+  margin-left: 93%;
+}
+#return-home{
+  background-color: #2949d7;
+  border-radius: 8px;
+  margin-right: 10%;
+  width: 100%;
+  
+}
+#return-home:hover{
+  background-color: #0d32d6;
+}
+
+#creatorDiv{
+  display: inline-block;
+  
+}
+
+.githubDiv {
+  text-align: center;
+}
+.imageDiv {
+  margin-top: 50%;
+  margin-left: 50%;
+}
+.checkoutH1{
+  margin-left:80%;
+}
+
+#container-team{
+  display: flex;
+  padding-left: 26%;;
+  padding-right: 20%;;
+}
+/* .image-grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-item {
+  flex-basis: 25%;
+  padding: 10px;
+  box-sizing: border-box;
+} */
