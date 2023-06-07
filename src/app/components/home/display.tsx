@@ -15,7 +15,7 @@ const Display = ({ uri }) =>{
   });
   const [showData, setShowData] = useState(false);
   useEffect((): any => {
-    fetch('http://localhost:3000/api/methods/', {
+    fetch('/api/methods/', {
     headers:{ 
       'Content-Type': 'application/json'
     },
