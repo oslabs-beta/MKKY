@@ -11,18 +11,25 @@ const Nav = () => {
   // console.log('THE SESSION:', session?.user.email)
   return (
     <nav className='flex flex-row justify-between items-center bg-blue-900' id='navBar'>
-      <div>
+      <div className='flex flex-row '>
         <Link href="/" className='flex gap-3 flex-center'>
           <Image
             src='/MKKY_logo.svg'
             alt='Our Logo'
-            width={80}
-            height={90}
+            width={100}
+            height={110}
             className='pl-2'
           />
-          {/* <button className='text-lg'>MKKY</button> */}
+        
         </Link>
+        <Link href='https://github.com/oslabs-beta/MKKY' className='flex flex-center ml-4'>
+        <Image src='/pngegg.png' alt='Github-pic' height={10} width={90} className='float-left'/>
+        </Link>
+       
       </div>
+      <div>
+      </div>
+
 
       <div className="flex-none">
         {!session ? (
