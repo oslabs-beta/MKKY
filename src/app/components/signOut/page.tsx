@@ -6,7 +6,7 @@ import {signOut} from 'next-auth/react';
 
 export default function Something(){
     return (
-        <div className='flex justify-center'>
+        <div className='flex justify-center '>
           <Link href="/" className='flex-initial'>
             <button onClick={() => signOut({ callbackUrl: 'http://localhost:3000'})} className='btn btn-secondary' >Sign Out</button>
           </Link> 

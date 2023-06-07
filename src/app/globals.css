@@ -102,6 +102,26 @@ body {
   align-items: center;
 }
 
+.row2 {
+  display: table;
+  width: 100%;
+}
+
+.column25 {
+  float: left;
+  width: 25%;
+  align-items: center;
+}
+
+.column75 {
+  float: right;
+  width: 75%;
+  align-items: center;
+}
+
+.our-gif {
+  margin-left: 20%;
+}
 .carosel {
   height: 200px;
   
@@ -206,6 +226,28 @@ input:focus {
 }
 #return-home:hover{
   background-color: #0d32d6;
+}
+
+#creatorDiv{
+  display: inline-block;
+  
+}
+
+.githubDiv {
+  text-align: center;
+}
+.imageDiv {
+  margin-top: 50%;
+  margin-left: 50%;
+}
+.checkoutH1{
+  margin-left:80%;
+}
+
+#container-team{
+  display: flex;
+  padding-left: 26%;;
+  padding-right: 20%;;
 }
 /* .image-grid {
   display: flex;

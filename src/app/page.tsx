@@ -1,9 +1,11 @@
 'use client'
 import React from 'react';
 import './globals.css'
-//import Image from 'next/image';
+import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
+
+
 
 const Welcome: React.FC = () => {
   const { data: session } = useSession();
@@ -39,9 +41,15 @@ const Welcome: React.FC = () => {
         <p className="text-lg mt-5">Visually Interact with your Cloud PostgreSQL Database</p>
       </div>
       <br></br>
-      <div className="flex flex-col" id='aboutDiv'>
+      <div className="row2" id='aboutDiv'>
         <h1 className="text-3xl font-bold p-10">About PGQL</h1>
-        <p className="text-lg mt-5 px-10" id='about'>PostGres-Query-Less(PGQL) is an open-source web application that can be used to connect to any cloud PostgreSQL database to visualize and adjust it's content. We strive to provide our users with a simple interface to communicate with their cloud databases through onClick functionality. When users make changes in their visualized database, queries are automated to adjust their databases directly in real-time.</p>
+        <div className = 'column25'>
+          <p className="text-lg mt-5 px-10 font-bold" id='about'>PostGres-Query-Less(PGQL) is an open-source web application that can be used to connect to any cloud PostgreSQL database to visualize and adjust it's content. We strive to provide our users with a simple interface to communicate with their cloud databases through onClick functionality. When users make changes in their visualized database, queries are automated to adjust their databases directly in real-time.</p>
+          </div>
+        <div className = 'column75'>
+          <Image src='/ourGif.gif' alt="our-gif" height={800} width={1000} className = 'our-gif'></Image> 
+        </div>
+        
       </div>
       <br></br>
 
@@ -63,8 +71,11 @@ const Welcome: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className='flex flex-col p-10' id='creatorsDiv'>
-        <h1 className='text-3xl font-bold'>Meet the Team</h1>
+      <div id='container-team'>
+        <div id='creatorDiv'>
+        <h1 className='text-3xl font-bold text-center'>Meet the Team</h1>
+        <Image src='/IMG_2024.jpg' alt = 'group-pic' height={700} width={700}/>
+      </div>
       </div>
     </div>
   );
