@@ -26,7 +26,7 @@ const Welcome: React.FC = () => {
           </Link>
         </div>
       )} */}
-      <div className="flex flex-col items-center">
+      <div className="test flex flex-col items-center">
       {!session ? (null) : (
         <div className='returnURI'>
           <Link href='/components/home'>
@@ -41,13 +41,21 @@ const Welcome: React.FC = () => {
         <p className="text-lg mt-5">Visually Interact with your Cloud PostgreSQL Database</p>
       </div>
       <br></br>
+
       <div className="row2" id='aboutDiv'>
-        <h1 className="text-3xl font-bold p-10">About PGQL</h1>
         <div className = 'column25'>
-          <p className="text-lg mt-5 px-10 font-bold" id='about'>PostGres-Query-Less(PGQL) is an open-source web application that can be used to connect to any cloud PostgreSQL database to visualize and adjust it's content. We strive to provide our users with a simple interface to communicate with their cloud databases through onClick functionality. When users make changes in their visualized database, queries are automated to adjust their databases directly in real-time.</p>
+        <h1 className="text-3xl  p-10">About PGQL</h1>
+
+          <p className="text-lg mt-5 px-10 test3 " id='about'>PostGres-Query-Less(PGQL) is an open-source web application that can be used to connect to any cloud PostgreSQL database to visualize and adjust it's content. We strive to provide our users with a simple interface to communicate with their cloud databases through onClick functionality. When users make changes in their visualized database, queries are automated to adjust their databases directly in real-time.</p>
+          <hr></hr>
           </div>
+        
+      </div>
+      
+      <div className="row2" id='aboutDiv'>
+        
         <div className = 'column75'>
-          <Image src='/ourGif.gif' alt="our-gif" height={800} width={1000} className = 'our-gif'></Image> 
+          <Image src='/ourGif.gif' alt="our-gif" height={800} width={800} className = ''></Image> 
         </div>
         
       </div>
@@ -71,10 +79,10 @@ const Welcome: React.FC = () => {
           </div>
         </div>
       </div>
-      <div id='container-team'>
+      <div id='container-team' className='test4'>
         <div id='creatorDiv'>
-        <h1 className='text-3xl font-bold text-center'>Meet the Team</h1>
-        <Image src='/IMG_2024.jpg' alt = 'group-pic' height={700} width={700}/>
+        <h1 className='test5 text-3xl font-bold text-center'>Meet the Team</h1>
+        <Image className='test5' src='/IMG_2024.jpg' alt = 'group-pic' height={700} width={700}/>
       </div>
       </div>
     </div>
