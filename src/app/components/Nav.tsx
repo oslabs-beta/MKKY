@@ -37,7 +37,7 @@ const Nav = () => {
         <ul className="menu menu-horizontal px-1">
           <li className='mr-2'>
             {/* <Link href="/components/login" className='flex-initial'> */}
-              <button className='btn btn-primary text-white' onClick={() => signIn("google", { callbackUrl: 'http://localhost:3000/components/home'}) }>Login With Google</button>
+              <button className='btn btn-primary text-white' onClick={() => signIn("google", { callbackUrl: '/components/home'}) }>Login With Google</button>
             {/* </Link> */}
           </li>
           {/* <li>
