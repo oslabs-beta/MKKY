@@ -32,6 +32,11 @@ body {
   height:100%;
   color: black;
 }
+
+.test { 
+  height: 500px;
+  padding-top:200px;
+}
 #extension {
   height: 100vh;
 }
@@ -105,22 +110,33 @@ body {
 .row2 {
   display: table;
   width: 100%;
+  background-color: white;
 }
 
 .column25 {
   float: left;
-  width: 25%;
+  width: 75%;
+  padding-left:25px;
   align-items: center;
+  padding-bottom:100px;
 }
 
 .column75 {
   float: right;
   width: 75%;
+  padding-bottom:100px;
+
   align-items: center;
+}
+.test4{
+  background-color:white;
+}
+.test3{
+  padding-bottom:75px;
 }
 
 .our-gif {
-  margin-left: 20%;
+  /* margin-left: 20%; */
 }
 .carosel {
   height: 200px;
@@ -229,8 +245,13 @@ input:focus {
 }
 
 #creatorDiv{
+  padding-top: 50px;
   display: inline-block;
   
+}
+
+.test5{
+  padding-bottom: 50px;
 }
 
 .githubDiv {
