@@ -52,14 +52,15 @@ PostGres-Query-Less(PGQL) is an open-source web application that can be used to 
 Currently the application supports UPDATE and DELETE queries. Once a URI is inputted, our application visualizes all the tables and populates the data into interactive table cells. These cells can be updated, onClick, and once a change is made the user can press ENTER to execute built in queries that update your database in real-time. To delete rows, users can change the primary key value of the target row to “-1” and press ENTER. 
 
 
-Making Edits
+## Resources
 
-Simply click onto a cell and edit as you like. Queries are made after each keystroke, so it isn't necessary to press enter or click out of the cell to double check that a query to update your data was made.
-
-//maybe add header for filtering your data if we can push that feature on time//
-
-Resources
-
-Built on //list technologies here//
+Built using: 
+- React
+- NodeJS
+- NextJS
+- TypeScript
+- Tailwind
+- PostgreSQL
+- MongoDB
 
 Creators: insert our names hyperlinked to our github here
