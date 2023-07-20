@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 let isConnected = false; 
 
 export const connectToDB = async () => {
-  //only data specified in Schema will be passed to database
   mongoose.set('strictQuery', true);
 
   if(isConnected){
@@ -24,4 +23,3 @@ export const connectToDB = async () => {
   }
 }
 
-//connectToDB();
