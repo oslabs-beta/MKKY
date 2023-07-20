@@ -12,20 +12,6 @@ const Welcome: React.FC = () => {
   return (
     <div>
 
-      {/* {!session ? (null) : (
-        <div className='returnURI'>
-          <Link href='/components/home'>
-            <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-3.5 px-10 border rounded' id='return-home'>
-              <Image
-              src='/home-icon.svg'
-              width={20}
-              height={20}
-              alt='homeicon'
-            />
-            </button>
-          </Link>
-        </div>
-      )} */}
       <div className="test flex flex-col items-center">
       {!session ? (null) : (
         <div className='returnURI'>
