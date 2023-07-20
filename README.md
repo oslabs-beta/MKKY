@@ -66,9 +66,9 @@ Built using:
 - NodeJS
 - NextJS
 - TypeScript
-- Tailwind
+- TailwindCSS
 - PostgreSQL
 - MongoDB
 
-Creators: insert our names hyperlinked to our github here
+
 
