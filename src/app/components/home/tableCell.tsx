@@ -29,11 +29,11 @@ function TableCell (props) {
         return setValue(newVal)
     } 
 
-    function deleterQuery(event, value, tableName,rowID, colID, uri, keyName){
+    async function deleterQuery(event, value, tableName,rowID, colID, uri, keyName){
         event.preventDefault()
         if (value == -1 && colID === keyName){
             let deleteQuery = `DELETE FROM ${tableName} WHERE ${colID} = '${value}'`
-            fetch('/api/delete', {
+            await fetch('/api/delete', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
