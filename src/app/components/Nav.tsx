@@ -8,7 +8,6 @@ import {signIn} from 'next-auth/react';
 
 const Nav = () => {
   const { data: session } = useSession();
-  // console.log('THE SESSION:', session?.user.email)
   return (
     <nav className='flex flex-row justify-between items-center bg-blue-900' id='navBar'>
       <div className='flex flex-row '>
@@ -40,11 +39,6 @@ const Nav = () => {
               <button className='btn btn-primary text-white' onClick={() => signIn("google", { callbackUrl: '/components/home'}) }>Login With Google</button>
             {/* </Link> */}
           </li>
-          {/* <li>
-            <Link href="/components/signUp" className='flex-initial'>
-              <button className="btn btn-secondary">Sign Up</button>
-            </Link>
-          </li> */}
           
         </ul>) : (
           
