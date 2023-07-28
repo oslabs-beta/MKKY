@@ -5,7 +5,6 @@ import TableCell from "./tableCell";
 import "./style.css"
 
 
-//const UpdateQueryContext = createContext(null)
 const Display = ({ uri }) =>{
   console.log('IN DISPLAY:', uri)
   const [data, setData] = useState({
